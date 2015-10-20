@@ -31,7 +31,7 @@ class Flipper extends React.Component {
         {this._getChildren ()}
       </div>
     </div>;
-	}
+  }
 }
 
 Flipper.defaultProps = {
