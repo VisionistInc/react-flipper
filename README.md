@@ -1,7 +1,7 @@
 
 # React-Flipper
 
-> React 'flipper' component that is agnostic to the height of its tiles, resizing accordingly.
+> React 'flipper' component that is agnostic to the height of its tiles, resizing accordingly. No jQuery.
 
 ## Get Started
 * Clone the repository

@@ -23,14 +23,14 @@ class Flipper extends React.Component {
     }.bind (this));
   }
   render () {
-		return <div
+      return <div
         style={this._getStyles ()}
         className={"flipper-container " + this.props.orientation} ref="flipperContainer">
-			<div
+      <div
         className={"flipper" + (this.props.isFlipped ? " flipped" : "")} ref="flipper">
         {this._getChildren ()}
-			</div>
-		</div>;
+      </div>
+    </div>;
 	}
 }
 
