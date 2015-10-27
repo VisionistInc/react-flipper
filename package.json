@@ -1,7 +1,6 @@
 {
-  "name": "node-react",
-  "version": "0.0.0",
-  "private": true,
+  "name": "react-flipper",
+  "version": "0.0.1",
   "author": "Visionist, Inc.",
   "description": "React flipper component that is agnostic to the height of its tiles, resizing accordingly.",
   "main": "server.js",
