@@ -11,7 +11,7 @@
     "build": "node ./node_modules/gulp/bin/gulp.js build",
     "dev": "NODE_ENV=development node ./node_modules/gulp/bin/gulp.js",
     "deploy": "NODE_ENV=production node ./node_modules/gulp/bin/gulp.js",
-    "dist": "node ./node_modules/babel/bin/babel.js src --out-dir lib"
+    "dist": "node ./node_modules/babel/bin/babel.js src --out-dir lib && node ./node_modules/gulp/bin/gulp.js less"
   },
   "peerDependencies": {
     "react": ">=0.13.3"

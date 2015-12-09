@@ -15,10 +15,10 @@ import { SourceDirectories } from './utils/SourceDirectories';
 let _path = {
   ENTRY_POINT: './src/Example/App.jsx',
   OUTPUT_JS: 'App.js',
-  OUTPUT_CSS: 'App.css',
+  OUTPUT_CSS: 'react-flipper.css',
   SERVER: [ './index.js', './server.js', './server/**/*' ],
   HTML: './src/*.html',
-  LESS: './src/**/*.scss',
+  LESS: './src/**/*.less',
   REACT: [ './src/**/*.jsx', './src/**/*.js' ],
   REACT_DIRECTORIES: SourceDirectories ('./src', 'relative'),
   SRC: './src',
