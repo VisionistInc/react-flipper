@@ -3,37 +3,38 @@
   "version": "0.0.1",
   "author": "Visionist, Inc.",
   "description": "React flipper component that is agnostic to the height of its tiles, resizing accordingly.",
-  "main": "server.js",
+  "main": "lib/index.js",
   "scripts": {
     "prepublish": "npm run-script build",
     "prestart": "npm run-script build",
     "start": "node ./node_modules/gulp/bin/gulp.js server",
     "build": "node ./node_modules/gulp/bin/gulp.js build",
     "dev": "NODE_ENV=development node ./node_modules/gulp/bin/gulp.js",
-    "deploy": "NODE_ENV=production node ./node_modules/gulp/bin/gulp.js"
+    "deploy": "NODE_ENV=production node ./node_modules/gulp/bin/gulp.js",
+    "dist": "node ./node_modules/babel/bin/babel.js src --out-dir lib"
   },
-  "dependencies": {
-    "better-console": "~0.2.4",
-    "express": "~4.13.3",
-    "react": "~0.13.3",
-    "deep-diff": "~0.3.2",
-    "babel": "~5.8.23",
-    "babel-core": "~5.8.25"
+  "peerDependencies": {
+    "react": ">=0.13.3"
   },
   "devDependencies": {
-    "gulp": "~3.9.0",
-    "gulp-watch": "~4.3.3",
-    "run-sequence": "~1.1.2",
-    "wrench": "~1.5.8",
-    "del": "~2.0.2",
+    "babel": "~5.8.23",
+    "babel-core": "~5.8.25",
+    "babelify": "~6.3.0",
+    "better-console": "~0.2.4",
     "browserify": "^10.2.4",
-    "gulp-streamify": "0.0.5",
-    "react-tools": "^0.13.3",
-    "reactify": "^1.1.1",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.3",
+    "deep-diff": "~0.3.2",
+    "del": "~2.0.2",
+    "express": "^4.13.3",
+    "gulp": "~3.9.0",
     "gulp-concat": "~2.6.0",
     "gulp-less": "~3.0.3",
-    "babelify": "~6.3.0"
+    "gulp-streamify": "0.0.5",
+    "gulp-watch": "~4.3.3",
+    "react-tools": "^0.13.3",
+    "reactify": "^1.1.1",
+    "run-sequence": "~1.1.2",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.3",
+    "wrench": "~1.5.8"
   }
 }

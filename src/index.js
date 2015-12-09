@@ -1,6 +1,6 @@
-import Flipper from './Flipper.jsx';
-import Front from './Front.jsx';
-import Back from './Back.jsx';
+import Flipper from './Flipper';
+import Front from './Front';
+import Back from './Back';
 
 export default {
   Flipper: Flipper,
