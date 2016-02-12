@@ -8,7 +8,6 @@ import watchify from 'watchify';
 import reactify from 'reactify';
 import babelify from 'babelify';
 import { spawn } from 'child_process';
-import del from 'del';
 import run from 'run-sequence';
 import { SourceDirectories } from './utils/SourceDirectories';
 
