@@ -1,4 +1,5 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 
 class Front extends React.Component {
   constructor (props) {
@@ -7,7 +8,7 @@ class Front extends React.Component {
     this._getHeight = this._getHeight.bind (this);
   }
   componentDidMount () {
-    React.findDOMNode (this).addEventListener ('DOMSubtreeModified', () => {
+    findDOMNode (this).addEventListener ('DOMSubtreeModified', () => {
       if (this.props.isFront) this._resize ();
     }.bind (this));
   }
@@ -21,7 +22,7 @@ class Front extends React.Component {
     this.props.resize ( this._getHeight () );
   }
   _getHeight () {
-    return React.findDOMNode (this.refs.frontTile).offsetHeight;
+    return findDOMNode (this.refs.frontTile).offsetHeight;
   }
   render () {
     return <div className="front tile" ref="frontTile">
