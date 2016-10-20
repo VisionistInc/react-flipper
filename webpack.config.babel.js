@@ -12,11 +12,11 @@ export default {
     path: OUTPUT_DIR,
     filename: 'index.js',
     library: 'react-flipper',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd'
   },
   externals: {
-    'react': 'react',
-    'react-dom': 'react-dom'
+    'react': 'react',
+    'react-dom': 'react-dom'
 },
   resolve: {
     extensions: ['', '.js', '.jsx']
