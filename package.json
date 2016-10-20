@@ -1,14 +1,13 @@
 {
   "name": "react-flipper",
-  "version": "0.0.0",
-  "author": "Visionist, Inc.",
-  "description": "React flipper component that is agnostic to the height of its tiles, resizing accordingly.",
+  "version": "0.0.1",
+  "author": "Enrique Caballero",
+  "description": "React 'flipper' component that just gets it",
   "main": "lib/index.js",
   "scripts": {
     "dev": "node ./node_modules/.bin/webpack -d --watch --config webpack.config.dev.babel.js",
     "build": "node ./node_modules/.bin/webpack"
   },
-  "author": "",
   "license": "ISC",
   "peerDependencies": {
     "react": "^15.0.2",
