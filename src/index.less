@@ -1,0 +1,154 @@
+.container-shadows {
+  box-shadow: 0 5px 5px -5px rgba(0,0,0,0.4);
+  border-radius: 0.2857rem;
+  border: 1px solid rgba(34,36,38,.15);
+}
+
+.transition (@property, @duration) {
+  transition-property: @property;
+  transition-duration: @duration;
+  transition-delay: 0s;
+  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);
+}
+
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0;
+  margin: 0;
+}
+
+*:not(i) {
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+}
+
+.content {
+  margin: auto;
+  width: 350px;
+  margin-top: 25px;
+}
+
+.title {
+  width: 350px;
+  padding: 15px;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.description {
+  width: 352px;
+  padding: 15px;
+  padding-top: 0;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.links {
+  width: 352px;
+  padding: 15px;
+  margin-top: 18px;
+  border-top: 1px solid #E8E8E8;
+}
+
+.links > i.fa-github {
+  cursor: pointer;
+  color: #d0d0d0;
+  font-size: 4em;
+  .transition (color, 250ms);
+}
+
+.links > i.fa-github:hover {
+  color: #9f9797;
+  font-size: 4em;
+}
+
+.footer {
+  color: #d0d0d0;
+  width: 352px;
+  padding: 15px;
+  border-top: 1px solid #E8E8E8;
+}
+
+.footer > i.fa-heart,
+.footer > i.fa-code {
+  .transition (color, 250ms);
+}
+
+.footer > i.fa-heart:hover {
+  color: red;
+}
+
+.footer > i.fa-code:hover {
+  color: black;
+}
+
+.footer > a {
+  padding-left: 5px;
+  color: #d0d0d0;
+  text-decoration: none;
+  .transition (color, 250ms);
+}
+
+.footer > a:hover {
+  color: #1B75BD;
+}
+
+.flipper-container {
+  width: 350px;
+
+  .front {
+    min-height: 150px;
+    box-shadow: 0 5px 5px -5px rgba(0,0,0,0.4);
+    border-radius: 0.2857rem !important;
+    border: 1px solid rgba(34,36,38,.15);
+  }
+
+  .back {
+    min-height: 200px;
+    box-shadow: 0 5px 5px -5px rgba(0,0,0,0.4);
+    border-radius: 0.2857rem !important;
+    border: 1px solid rgba(34,36,38,.15);
+  }
+}
+
+.flipper-containers {
+  width: 350px;
+  min-height: auto;
+  padding: 15px;
+  background-color: #d0d0d0;
+  overflow: hidden;
+  margin-bottom: 15px;
+  .container-shadows;
+
+  div:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+div.flipper-toggle {
+  width: 350px;
+  padding: 15px;
+  background-color: white;
+  .container-shadows;
+
+  button {
+    .transition (background-color, 250ms);
+    cursor: pointer;
+    background-color: #FFED8E;
+    width: 100%;
+    font-size: 1.1em;
+    height: 50px;
+    outline: none;
+    .container-shadows;
+  }
+
+  button:hover {
+    background-color: #f0e08f;
+  }
+
+  button:active {
+    background-color: #eedb76;
+  }
+}
