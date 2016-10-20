@@ -3,12 +3,10 @@
 
 React 'flipper' component that is agnostic to the height of its tiles, resizing accordingly. No jQuery.
 
-Demo: http://visionistinc.github.io/react-flipper/
-
 ## Get Started
 * Clone the repository
 ```
-git@github.com:VisionistInc/react-flipper.git
+git@gitlab.com:enriquecaballero/react-flipper.git
 ```
 
 * Go into the cloned repository's directory
@@ -21,34 +19,24 @@ cd react-flipper
 npm install
 ```
 
-## Building the static files
-Bundled static files will live inside the ```./dist``` directory
+## Running for development
+- Bundle the static files and watch over development files
 ```
-+ dist/
-    |-- index.html
-    |-- App.js
-    \-- App.css
+npm run dev
+```
+- Open ```dist/index.html``` in your browser and refresh upon making a change -- webpack should have already rebundled your static files.
+
+## Prepare for publishing
+Bundled static files will live inside the ```lib``` directory
+```
++ lib/
+    \-- index.js
 ```
 
-- Bundle static files and exit on finish
+- Build the component library
 
   ```
-  npm run-script build
+  npm run build
   ```
 
-## Running the application for Development
-- Bundle the static files, watch over development files, and start the server
-```
-npm run-script dev
-```
-Gulp will watch over all of your files and rebuild on save. It will also restart the Node server whenever you edit or modify any of the server files
-
-- Open your browser and go to ```http://localhost:3003```
-
-## Running the application for Production
-- Bundle the static files and start the server
-```
-npm start
-```
-
-- Open your browser and go to ```http://localhost:3003```
+Deploy to GitHub Pages

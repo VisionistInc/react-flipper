@@ -47,24 +47,24 @@
   \******************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! /Users/enriquecaballero/Sites/react-flipper-alt/src/index.html */1);
-	module.exports = __webpack_require__(/*! /Users/enriquecaballero/Sites/react-flipper-alt/src/index.jsx */2);
+	__webpack_require__(/*! /Users/enriquecaballero/Sites/react-flipper-alt/src/website/index.html */1);
+	module.exports = __webpack_require__(/*! /Users/enriquecaballero/Sites/react-flipper-alt/src/website/index.jsx */2);
 
 
 /***/ },
 /* 1 */
-/*!************************!*\
-  !*** ./src/index.html ***!
-  \************************/
+/*!********************************!*\
+  !*** ./src/website/index.html ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "index.html";
 
 /***/ },
 /* 2 */
-/*!***********************!*\
-  !*** ./src/index.jsx ***!
-  \***********************/
+/*!*******************************!*\
+  !*** ./src/website/index.jsx ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77,7 +77,7 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 36);
 	
-	var _Flipper = __webpack_require__(/*! ./Flipper/ */ 174);
+	var _components = __webpack_require__(/*! ../components/ */ 174);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -89,8 +89,8 @@
 	
 	__webpack_require__(/*! ./index.less */ 182);
 	
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
+	var App = function (_Component) {
+	  _inherits(App, _Component);
 	
 	  function App(props) {
 	    _classCallCheck(this, App);
@@ -135,24 +135,24 @@
 	            'div',
 	            { className: 'flipper-containers' },
 	            _react2.default.createElement(
-	              _Flipper.Flipper,
+	              _components.Flipper,
 	              { isFlipped: this.state.isFlipped, orientation: 'horizontal' },
 	              _react2.default.createElement(
-	                _Flipper.Front,
+	                _components.Front,
 	                null,
 	                ' I flip horizontally . . . '
 	              ),
-	              _react2.default.createElement(_Flipper.Back, null)
+	              _react2.default.createElement(_components.Back, null)
 	            ),
 	            _react2.default.createElement(
-	              _Flipper.Flipper,
+	              _components.Flipper,
 	              { isFlipped: this.state.isFlipped, orientation: 'vertical' },
 	              _react2.default.createElement(
-	                _Flipper.Front,
+	                _components.Front,
 	                null,
 	                ' . . . and I flip vertically '
 	              ),
-	              _react2.default.createElement(_Flipper.Back, null)
+	              _react2.default.createElement(_components.Back, null)
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -188,7 +188,7 @@
 	  }]);
 	
 	  return App;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app-content'));
 
@@ -22109,9 +22109,9 @@
 
 /***/ },
 /* 174 */
-/*!******************************!*\
-  !*** ./src/Flipper/index.js ***!
-  \******************************/
+/*!*********************************!*\
+  !*** ./src/components/index.js ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22139,9 +22139,9 @@
 
 /***/ },
 /* 175 */
-/*!*********************************!*\
-  !*** ./src/Flipper/Flipper.jsx ***!
-  \*********************************/
+/*!************************************!*\
+  !*** ./src/components/Flipper.jsx ***!
+  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22166,8 +22166,8 @@
 	
 	__webpack_require__(/*! ./index.less */ 176);
 	
-	var Flipper = function (_React$Component) {
-	  _inherits(Flipper, _React$Component);
+	var Flipper = function (_Component) {
+	  _inherits(Flipper, _Component);
 	
 	  function Flipper(props) {
 	    _classCallCheck(this, Flipper);
@@ -22222,7 +22222,7 @@
 	  }]);
 	
 	  return Flipper;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	Flipper.defaultProps = {
 	  isFlipped: false,
@@ -22234,9 +22234,9 @@
 
 /***/ },
 /* 176 */
-/*!********************************!*\
-  !*** ./src/Flipper/index.less ***!
-  \********************************/
+/*!***********************************!*\
+  !*** ./src/components/index.less ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22263,9 +22263,9 @@
 
 /***/ },
 /* 177 */
-/*!***************************************************************!*\
-  !*** ./~/css-loader!./~/less-loader!./src/Flipper/index.less ***!
-  \***************************************************************/
+/*!******************************************************************!*\
+  !*** ./~/css-loader!./~/less-loader!./src/components/index.less ***!
+  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 178)();
@@ -22593,9 +22593,9 @@
 
 /***/ },
 /* 180 */
-/*!*******************************!*\
-  !*** ./src/Flipper/Front.jsx ***!
-  \*******************************/
+/*!**********************************!*\
+  !*** ./src/components/Front.jsx ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22620,8 +22620,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Front = function (_React$Component) {
-	  _inherits(Front, _React$Component);
+	var Front = function (_Component) {
+	  _inherits(Front, _Component);
 	
 	  function Front(props) {
 	    _classCallCheck(this, Front);
@@ -22674,16 +22674,16 @@
 	  }]);
 	
 	  return Front;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	exports.default = Front;
 	module.exports = exports['default'];
 
 /***/ },
 /* 181 */
-/*!******************************!*\
-  !*** ./src/Flipper/Back.jsx ***!
-  \******************************/
+/*!*********************************!*\
+  !*** ./src/components/Back.jsx ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22708,8 +22708,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Back = function (_React$Component) {
-	  _inherits(Back, _React$Component);
+	var Back = function (_Component) {
+	  _inherits(Back, _Component);
 	
 	  function Back(props) {
 	    _classCallCheck(this, Back);
@@ -22762,32 +22762,32 @@
 	  }]);
 	
 	  return Back;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	exports.default = Back;
 	module.exports = exports['default'];
 
 /***/ },
 /* 182 */
-/*!************************!*\
-  !*** ./src/index.less ***!
-  \************************/
+/*!********************************!*\
+  !*** ./src/website/index.less ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../~/css-loader!./../~/less-loader!./index.less */ 183);
+	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/less-loader!./index.less */ 183);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../~/style-loader/addStyles.js */ 179)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 179)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./index.less", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./index.less");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/less-loader/index.js!./index.less", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/less-loader/index.js!./index.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22798,12 +22798,12 @@
 
 /***/ },
 /* 183 */
-/*!*******************************************************!*\
-  !*** ./~/css-loader!./~/less-loader!./src/index.less ***!
-  \*******************************************************/
+/*!***************************************************************!*\
+  !*** ./~/css-loader!./~/less-loader!./src/website/index.less ***!
+  \***************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../~/css-loader/lib/css-base.js */ 178)();
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 178)();
 	// imports
 	
 	

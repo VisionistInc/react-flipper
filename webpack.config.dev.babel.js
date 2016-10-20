@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import { resolve } from 'path';
 
 const DIST_DIR = resolve (__dirname, 'dist');
-const APP_DIR = resolve (__dirname, 'src');
+const APP_DIR = resolve (__dirname, 'src', 'website');
 
 export default {
   entry: [

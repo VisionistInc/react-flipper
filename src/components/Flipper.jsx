@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 require ('./index.less');
 
-class Flipper extends React.Component {
+class Flipper extends Component {
   constructor (props) {
     super (props);
     this._setHeight = this._setHeight.bind (this);

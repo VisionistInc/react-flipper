@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import { resolve } from 'path';
 
 const LIB_DIR = resolve (__dirname, 'lib');
-const SRC_DIR = resolve (__dirname, 'src', 'Flipper');
+const SRC_DIR = resolve (__dirname, 'src', 'components');
 
 export default {
   entry: [

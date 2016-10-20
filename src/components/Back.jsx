@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 
-class Front extends React.Component {
+class Back extends Component {
   constructor (props) {
     super (props);
     this._resize = this._resize.bind (this);
@@ -9,11 +9,11 @@ class Front extends React.Component {
   }
   componentDidMount () {
     findDOMNode (this).addEventListener ('DOMSubtreeModified', () => {
-      if (this.props.isFront) this._resize ();
+      if (!this.props.isFront) this._resize ();
     });
   }
   componentDidUpdate () {
-    if (this.props.isFront) this._resize ();
+    if (!this.props.isFront) this._resize ();
   }
   shouldComponentUpdate (nextProps, nextState) {
     return this.props.isFront !== nextProps.isFront;
@@ -22,13 +22,13 @@ class Front extends React.Component {
     this.props.resize ( this._getHeight () );
   }
   _getHeight () {
-    return findDOMNode (this.refs.frontTile).offsetHeight;
+    return findDOMNode (this.refs.backTile).offsetHeight;
   }
   render () {
-    return <div className="front tile" ref="frontTile">
+    return <div className="back tile" ref="backTile">
       {this.props.children}
     </div>;
   }
 }
 
-export default Front;
+export default Back;

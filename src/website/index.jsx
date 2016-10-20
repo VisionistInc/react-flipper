@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Flipper, Front, Back } from './Flipper/';
+import { Flipper, Front, Back } from '../components/';
 
 require ('./index.less');
 
-class App extends React.Component {
+class App extends Component {
   constructor (props) {
     super (props);
     this._flip = this._flip.bind (this);
