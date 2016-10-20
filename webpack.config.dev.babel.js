@@ -1,16 +1,16 @@
 import webpack from 'webpack';
 import { resolve } from 'path';
 
-const DIST_DIR = resolve (__dirname, 'dist');
-const APP_DIR = resolve (__dirname, 'src', 'website');
+const OUTPUT_DIR = resolve (__dirname, 'dist');
+const INPUT_DIR = resolve (__dirname, 'src', 'website');
 
 export default {
   entry: [
-    resolve (APP_DIR, 'index.html'),
-    resolve (APP_DIR, 'index.jsx')
+    resolve (INPUT_DIR, 'index.html'),
+    resolve (INPUT_DIR, 'index.jsx')
   ],
   output: {
-    path: DIST_DIR,
+    path: OUTPUT_DIR,
     filename: 'bundle.js',
   },
   resolve: {

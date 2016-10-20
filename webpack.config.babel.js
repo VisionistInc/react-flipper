@@ -1,15 +1,15 @@
 import webpack from 'webpack';
 import { resolve } from 'path';
 
-const LIB_DIR = resolve (__dirname, 'lib');
-const SRC_DIR = resolve (__dirname, 'src', 'components');
+const OUTPUT_DIR = resolve (__dirname, 'lib');
+const INPUT_DIR = resolve (__dirname, 'src', 'components');
 
 export default {
   entry: [
-    resolve (SRC_DIR, 'index.js')
+    resolve (INPUT_DIR, 'index.js')
   ],
   output: {
-    path: LIB_DIR,
+    path: OUTPUT_DIR,
     filename: 'index.js',
     library: 'react-flipper',
     libraryTarget: 'umd'
