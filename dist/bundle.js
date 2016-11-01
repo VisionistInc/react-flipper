@@ -139,20 +139,20 @@
 	              { isFlipped: this.state.isFlipped, orientation: 'horizontal' },
 	              _react2.default.createElement(
 	                _components.Front,
-	                null,
-	                ' I flip horizontally . . . '
+	                { style: { minHeight: 250, background: '#19489E' } },
+	                'I flip horizontally . . .'
 	              ),
-	              _react2.default.createElement(_components.Back, null)
+	              _react2.default.createElement(_components.Back, { style: { background: '#9E1919', minHeight: 400 } })
 	            ),
 	            _react2.default.createElement(
 	              _components.Flipper,
 	              { isFlipped: this.state.isFlipped, orientation: 'vertical' },
 	              _react2.default.createElement(
 	                _components.Front,
-	                null,
-	                ' . . . and I flip vertically '
+	                { style: { minHeight: 250, background: '#19489E' } },
+	                '. . . and I flip vertically'
 	              ),
-	              _react2.default.createElement(_components.Back, null)
+	              _react2.default.createElement(_components.Back, { style: { background: '#9E1919', minHeight: 325 } })
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -22177,14 +22177,14 @@
 	    _this._setHeight = _this._setHeight.bind(_this);
 	    _this._getStyles = _this._getStyles.bind(_this);
 	    _this._getChildren = _this._getChildren.bind(_this);
-	    _this.state = { height: 250 };
+	    _this.state = { height: 30 };
 	    return _this;
 	  }
 	
 	  _createClass(Flipper, [{
 	    key: '_setHeight',
-	    value: function _setHeight(height) {
-	      this.setState({ height: height });
+	    value: function _setHeight(_height) {
+	      this.setState({ height: _height });
 	    }
 	  }, {
 	    key: '_getStyles',
@@ -22273,7 +22273,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".backface-visibility-hidden {\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n}\ndiv.button-container {\n  float: left;\n  width: 100%;\n  margin-top: 15px;\n}\ndiv.button-container button {\n  width: auto;\n  padding: 7px 22px;\n}\n.flipper-container {\n  z-index: 1;\n  float: left;\n  width: 250px;\n  margin-right: 15px;\n  display: block;\n  -webkit-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  -moz-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  -ms-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  -o-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  perspective: 1000px;\n  -webkit-perspective: 1000px;\n  -moz-perspective: 1000px;\n  -ms-perspective: 1000px;\n}\n.flipper-container span {\n  color: white;\n}\n.flipper-container > div.flipper {\n  z-index: 1;\n  float: left;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  transform-style: preserve-3d;\n  -webkit-transform-style: preserve-3d;\n  -moz-transform-style: preserve-3d;\n  -ms-transform-style: preserve-3d;\n}\n.flipper-container > div.flipper .front,\n.flipper-container > div.flipper .back {\n  float: left;\n  display: block;\n  width: 100%;\n  height: 100%;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n  position: absolute;\n  top: 0;\n  left: 0;\n  transform-style: preserve-3d;\n  -webkit-transform-style: preserve-3d;\n  -moz-transform-style: preserve-3d;\n  -ms-transform-style: preserve-3d;\n  -webkit-transition: -webkit-transform ease 500ms;\n  -moz-transition: -webkit-transform ease 500ms;\n  -ms-transition: -webkit-transform ease 500ms;\n  -o-transition: -webkit-transform ease 500ms;\n  transition: -webkit-transform ease 500ms;\n  -webkit-transition: transform ease 500ms;\n  -moz-transition: transform ease 500ms;\n  -ms-transition: transform ease 500ms;\n  -o-transition: transform ease 500ms;\n  transition: transform ease 500ms;\n}\n.flipper-container > div.flipper .front {\n  z-index: 1;\n  background: #19489E;\n  min-height: 250px;\n  height: auto;\n  /** Front tile\n          styles go here **/\n}\n.flipper-container > div.flipper .back {\n  background: #9E1919;\n  min-height: 350px;\n  height: auto;\n  /** Back tile\n          styles go here **/\n}\n.flipper-container .tile {\n  color: white;\n  padding: 15px;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n}\n.flipper-container.horizontal .front {\n  transform: rotateY(0deg);\n  -ms-transform: rotateY(0deg);\n  -webkit-transform: rotateY(0deg);\n  -o-transform: rotateY(0deg);\n  -moz-transform: rotateY(0deg);\n}\n.flipper-container.horizontal .back {\n  transform: rotateY(-180deg);\n  -ms-transform: rotateY(-180deg);\n  -webkit-transform: rotateY(-180deg);\n  -o-transform: rotateY(-180deg);\n  -moz-transform: rotateY(-180deg);\n}\n.flipper-container.horizontal div.flipper.flipped .front {\n  transform: rotateY(180deg);\n  -ms-transform: rotateY(180deg);\n  -webkit-transform: rotateY(180deg);\n  -o-transform: rotateY(180deg);\n  -moz-transform: rotateY(180deg);\n}\n.flipper-container.horizontal div.flipper.flipped .back {\n  transform: rotateY(0deg);\n  -ms-transform: rotateY(0deg);\n  -webkit-transform: rotateY(0deg);\n  -o-transform: rotateY(0deg);\n  -moz-transform: rotateY(0deg);\n}\n.flipper-container.vertical .front {\n  transform: rotateX(0deg);\n  -ms-transform: rotateX(0deg);\n  -webkit-transform: rotateX(0deg);\n  -o-transform: rotateX(0deg);\n  -moz-transform: rotateX(0deg);\n}\n.flipper-container.vertical .back {\n  transform: rotateX(-180deg);\n  -ms-transform: rotateX(-180deg);\n  -webkit-transform: rotateX(-180deg);\n  -o-transform: rotateX(-180deg);\n  -moz-transform: rotateX(-180deg);\n}\n.flipper-container.vertical div.flipper.flipped .front {\n  transform: rotateX(180deg);\n  -ms-transform: rotateX(180deg);\n  -webkit-transform: rotateX(180deg);\n  -o-transform: rotateX(180deg);\n  -moz-transform: rotateX(180deg);\n}\n.flipper-container.vertical div.flipper.flipped .back {\n  transform: rotateX(0deg);\n  -ms-transform: rotateX(0deg);\n  -webkit-transform: rotateX(0deg);\n  -o-transform: rotateX(0deg);\n  -moz-transform: rotateX(0deg);\n}\n", ""]);
+	exports.push([module.id, ".backface-visibility-hidden {\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n}\ndiv.button-container {\n  float: left;\n  width: 100%;\n  margin-top: 15px;\n}\ndiv.button-container button {\n  width: auto;\n  padding: 7px 22px;\n}\n.flipper-container {\n  z-index: 1;\n  float: left;\n  width: 250px;\n  margin-right: 15px;\n  display: block;\n  -webkit-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  -moz-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  -ms-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  -o-transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  transition: height 500ms cubic-bezier(0.77, 0, 0.02, 1);\n  perspective: 1000px;\n  -webkit-perspective: 1000px;\n  -moz-perspective: 1000px;\n  -ms-perspective: 1000px;\n}\n.flipper-container span {\n  color: white;\n}\n.flipper-container > div.flipper {\n  z-index: 1;\n  float: left;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  transform-style: preserve-3d;\n  -webkit-transform-style: preserve-3d;\n  -moz-transform-style: preserve-3d;\n  -ms-transform-style: preserve-3d;\n}\n.flipper-container > div.flipper .front,\n.flipper-container > div.flipper .back {\n  float: left;\n  display: block;\n  width: 100%;\n  height: 100%;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n  position: absolute;\n  top: 0;\n  left: 0;\n  transform-style: preserve-3d;\n  -webkit-transform-style: preserve-3d;\n  -moz-transform-style: preserve-3d;\n  -ms-transform-style: preserve-3d;\n  -webkit-transition: -webkit-transform ease 500ms;\n  -moz-transition: -webkit-transform ease 500ms;\n  -ms-transition: -webkit-transform ease 500ms;\n  -o-transition: -webkit-transform ease 500ms;\n  transition: -webkit-transform ease 500ms;\n  -webkit-transition: transform ease 500ms;\n  -moz-transition: transform ease 500ms;\n  -ms-transition: transform ease 500ms;\n  -o-transition: transform ease 500ms;\n  transition: transform ease 500ms;\n}\n.flipper-container > div.flipper .front {\n  height: auto;\n}\n.flipper-container > div.flipper .back {\n  height: auto;\n}\n.flipper-container .tile {\n  color: white;\n  padding: 15px;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n}\n.flipper-container.horizontal .front {\n  transform: rotateY(0deg);\n  -ms-transform: rotateY(0deg);\n  -webkit-transform: rotateY(0deg);\n  -o-transform: rotateY(0deg);\n  -moz-transform: rotateY(0deg);\n}\n.flipper-container.horizontal .back {\n  transform: rotateY(-180deg);\n  -ms-transform: rotateY(-180deg);\n  -webkit-transform: rotateY(-180deg);\n  -o-transform: rotateY(-180deg);\n  -moz-transform: rotateY(-180deg);\n}\n.flipper-container.horizontal div.flipper.flipped .front {\n  transform: rotateY(180deg);\n  -ms-transform: rotateY(180deg);\n  -webkit-transform: rotateY(180deg);\n  -o-transform: rotateY(180deg);\n  -moz-transform: rotateY(180deg);\n}\n.flipper-container.horizontal div.flipper.flipped .back {\n  transform: rotateY(0deg);\n  -ms-transform: rotateY(0deg);\n  -webkit-transform: rotateY(0deg);\n  -o-transform: rotateY(0deg);\n  -moz-transform: rotateY(0deg);\n}\n.flipper-container.vertical .front {\n  transform: rotateX(0deg);\n  -ms-transform: rotateX(0deg);\n  -webkit-transform: rotateX(0deg);\n  -o-transform: rotateX(0deg);\n  -moz-transform: rotateX(0deg);\n}\n.flipper-container.vertical .back {\n  transform: rotateX(-180deg);\n  -ms-transform: rotateX(-180deg);\n  -webkit-transform: rotateX(-180deg);\n  -o-transform: rotateX(-180deg);\n  -moz-transform: rotateX(-180deg);\n}\n.flipper-container.vertical div.flipper.flipped .front {\n  transform: rotateX(180deg);\n  -ms-transform: rotateX(180deg);\n  -webkit-transform: rotateX(180deg);\n  -o-transform: rotateX(180deg);\n  -moz-transform: rotateX(180deg);\n}\n.flipper-container.vertical div.flipper.flipped .back {\n  transform: rotateX(0deg);\n  -ms-transform: rotateX(0deg);\n  -webkit-transform: rotateX(0deg);\n  -o-transform: rotateX(0deg);\n  -moz-transform: rotateX(0deg);\n}\n", ""]);
 	
 	// exports
 
@@ -22604,6 +22604,8 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 3);
@@ -22613,6 +22615,8 @@
 	var _reactDom = __webpack_require__(/*! react-dom */ 36);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -22626,26 +22630,29 @@
 	  function Front(props) {
 	    _classCallCheck(this, Front);
 	
-	    var _this = _possibleConstructorReturn(this, (Front.__proto__ || Object.getPrototypeOf(Front)).call(this, props));
-	
-	    _this._resize = _this._resize.bind(_this);
-	    _this._getHeight = _this._getHeight.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, (Front.__proto__ || Object.getPrototypeOf(Front)).call(this, props));
 	  }
 	
 	  _createClass(Front, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
+	      this._resize.call(this);
 	
-	      (0, _reactDom.findDOMNode)(this).addEventListener('DOMSubtreeModified', function () {
-	        if (_this2.props.isFront) _this2._resize();
-	      });
+	      /** Adds an event listener to the contents inside the subtree;
+	          this will resize the flipper whenever the subtree contents change **/
+	      (0, _reactDom.findDOMNode)(this).addEventListener('DOMSubtreeModified', this._resize.bind(this));
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      /** As our component will unmount, the active event listener
+	          is no longer needed, therefore it is important to remove it **/
+	      (0, _reactDom.findDOMNode)(this).removeEventListener('DOMSubtreeModified', this._resize.bind(this));
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      if (this.props.isFront) this._resize();
+	      this._resize.call(this);
 	    }
 	  }, {
 	    key: 'shouldComponentUpdate',
@@ -22655,7 +22662,7 @@
 	  }, {
 	    key: '_resize',
 	    value: function _resize() {
-	      this.props.resize(this._getHeight());
+	      if (this.props.isFront) this.props.resize(this._getHeight.call(this));
 	    }
 	  }, {
 	    key: '_getHeight',
@@ -22663,11 +22670,21 @@
 	      return (0, _reactDom.findDOMNode)(this.refs.frontTile).offsetHeight;
 	    }
 	  }, {
+	    key: '_getClassName',
+	    value: function _getClassName() {
+	      return this.props.className ? 'front tile ' + this.props.className : 'front tile';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _props = this.props;
+	      var className = _props.className;
+	
+	      var props = _objectWithoutProperties(_props, ['className']);
+	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'front tile', ref: 'frontTile' },
+	        _extends({ className: this._getClassName.call(this), ref: 'frontTile' }, props),
 	        this.props.children
 	      );
 	    }
@@ -22692,6 +22709,8 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 3);
@@ -22701,6 +22720,8 @@
 	var _reactDom = __webpack_require__(/*! react-dom */ 36);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -22714,26 +22735,29 @@
 	  function Back(props) {
 	    _classCallCheck(this, Back);
 	
-	    var _this = _possibleConstructorReturn(this, (Back.__proto__ || Object.getPrototypeOf(Back)).call(this, props));
-	
-	    _this._resize = _this._resize.bind(_this);
-	    _this._getHeight = _this._getHeight.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, (Back.__proto__ || Object.getPrototypeOf(Back)).call(this, props));
 	  }
 	
 	  _createClass(Back, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
+	      this._resize.call(this);
 	
-	      (0, _reactDom.findDOMNode)(this).addEventListener('DOMSubtreeModified', function () {
-	        if (!_this2.props.isFront) _this2._resize();
-	      });
+	      /** Adds an event listener to the contents inside the subtree;
+	          this will resize the flipper whenever the subtree contents change **/
+	      (0, _reactDom.findDOMNode)(this).addEventListener('DOMSubtreeModified', this._resize.bind(this));
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      /** As our component will unmount, the active event listener
+	          is no longer needed, therefore it is important to remove it **/
+	      (0, _reactDom.findDOMNode)(this).removeEventListener('DOMSubtreeModified', this._resize.bind(this));
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      if (!this.props.isFront) this._resize();
+	      this._resize.call(this);
 	    }
 	  }, {
 	    key: 'shouldComponentUpdate',
@@ -22743,7 +22767,7 @@
 	  }, {
 	    key: '_resize',
 	    value: function _resize() {
-	      this.props.resize(this._getHeight());
+	      if (!this.props.isFront) this.props.resize(this._getHeight.call(this));
 	    }
 	  }, {
 	    key: '_getHeight',
@@ -22751,11 +22775,21 @@
 	      return (0, _reactDom.findDOMNode)(this.refs.backTile).offsetHeight;
 	    }
 	  }, {
+	    key: '_getClassName',
+	    value: function _getClassName() {
+	      return this.props.className ? 'back tile ' + this.props.className : 'back tile';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _props = this.props;
+	      var className = _props.className;
+	
+	      var props = _objectWithoutProperties(_props, ['className']);
+	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'back tile', ref: 'backTile' },
+	        _extends({ className: this._getClassName.call(this), ref: 'backTile' }, props),
 	        this.props.children
 	      );
 	    }
@@ -22808,7 +22842,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".container-shadows {\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\nhtml,\nbody {\n  height: 100% !important;\n  width: 100% !important;\n  padding: 0;\n  margin: 0;\n}\n*:not(i) {\n  font-family: 'Karla', sans-serif;\n  text-align: center;\n}\n.content {\n  margin: auto;\n  width: 350px;\n  margin-top: 25px;\n}\n.title {\n  width: 350px;\n  padding: 15px;\n  padding-bottom: 5px;\n  font-size: 1.25em;\n  font-weight: bold;\n}\n.description {\n  width: 352px;\n  padding: 15px;\n  padding-top: 0;\n  margin-bottom: 18px;\n  border-bottom: 1px solid #E8E8E8;\n}\n.links {\n  width: 352px;\n  padding: 15px;\n  margin-top: 18px;\n  border-top: 1px solid #E8E8E8;\n}\n.links > i.fa-github {\n  cursor: pointer;\n  color: #d0d0d0;\n  font-size: 4em;\n  transition-property: color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n}\n.links > i.fa-github:hover {\n  color: #9f9797;\n  font-size: 4em;\n}\n.footer {\n  color: #d0d0d0;\n  width: 352px;\n  padding: 15px;\n  border-top: 1px solid #E8E8E8;\n}\n.footer > i.fa-heart,\n.footer > i.fa-code {\n  transition-property: color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n}\n.footer > i.fa-heart:hover {\n  color: red;\n}\n.footer > i.fa-code:hover {\n  color: black;\n}\n.footer > a {\n  padding-left: 5px;\n  color: #d0d0d0;\n  text-decoration: none;\n  transition-property: color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n}\n.footer > a:hover {\n  color: #1B75BD;\n}\n.flipper-container {\n  width: 350px;\n}\n.flipper-container .front {\n  min-height: 150px;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem !important;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\n.flipper-container .back {\n  min-height: 200px;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem !important;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\n.flipper-containers {\n  width: 350px;\n  min-height: auto;\n  padding: 15px;\n  background-color: #d0d0d0;\n  overflow: hidden;\n  margin-bottom: 15px;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\n.flipper-containers div:not(:last-child) {\n  margin-bottom: 15px;\n}\ndiv.flipper-toggle {\n  width: 350px;\n  padding: 15px;\n  background-color: white;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\ndiv.flipper-toggle button {\n  transition-property: background-color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n  cursor: pointer;\n  background-color: #FFED8E;\n  width: 100%;\n  font-size: 1.1em;\n  height: 50px;\n  outline: none;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\ndiv.flipper-toggle button:hover {\n  background-color: #f0e08f;\n}\ndiv.flipper-toggle button:active {\n  background-color: #eedb76;\n}\n", ""]);
+	exports.push([module.id, ".container-shadows {\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\nhtml,\nbody {\n  height: 100% !important;\n  width: 100% !important;\n  padding: 0;\n  margin: 0;\n}\n*:not(i) {\n  font-family: 'Karla', sans-serif;\n  text-align: center;\n}\n.content {\n  margin: auto;\n  width: 350px;\n  margin-top: 25px;\n}\n.title {\n  width: 350px;\n  padding: 15px;\n  padding-bottom: 5px;\n  font-size: 1.25em;\n  font-weight: bold;\n}\n.description {\n  width: 352px;\n  padding: 15px;\n  padding-top: 0;\n  margin-bottom: 18px;\n  border-bottom: 1px solid #E8E8E8;\n}\n.links {\n  width: 352px;\n  padding: 15px;\n  margin-top: 18px;\n  border-top: 1px solid #E8E8E8;\n}\n.links > i.fa-github {\n  cursor: pointer;\n  color: #d0d0d0;\n  font-size: 4em;\n  transition-property: color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n}\n.links > i.fa-github:hover {\n  color: #9f9797;\n  font-size: 4em;\n}\n.footer {\n  color: #d0d0d0;\n  width: 352px;\n  padding: 15px;\n  border-top: 1px solid #E8E8E8;\n}\n.footer > i.fa-heart,\n.footer > i.fa-code {\n  transition-property: color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n}\n.footer > i.fa-heart:hover {\n  color: red;\n}\n.footer > i.fa-code:hover {\n  color: black;\n}\n.footer > a {\n  padding-left: 5px;\n  color: #d0d0d0;\n  text-decoration: none;\n  transition-property: color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n}\n.footer > a:hover {\n  color: #1B75BD;\n}\n.flipper-container {\n  width: 350px;\n}\n.flipper-container .front {\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem !important;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\n.flipper-container .back {\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem !important;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\n.flipper-containers {\n  width: 350px;\n  min-height: auto;\n  padding: 15px;\n  background-color: #d0d0d0;\n  overflow: hidden;\n  margin-bottom: 15px;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\n.flipper-containers div:not(:last-child) {\n  margin-bottom: 15px;\n}\ndiv.flipper-toggle {\n  width: 350px;\n  padding: 15px;\n  background-color: white;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\ndiv.flipper-toggle button {\n  transition-property: background-color;\n  transition-duration: 250ms;\n  transition-delay: 0s;\n  transition-timing-function: cubic-bezier(0.77, 0, 0.02, 1);\n  cursor: pointer;\n  background-color: #FFED8E;\n  width: 100%;\n  font-size: 1.1em;\n  height: 50px;\n  outline: none;\n  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);\n  border-radius: 0.2857rem;\n  border: 1px solid rgba(34, 36, 38, 0.15);\n}\ndiv.flipper-toggle button:hover {\n  background-color: #f0e08f;\n}\ndiv.flipper-toggle button:active {\n  background-color: #eedb76;\n}\n", ""]);
 	
 	// exports
 
