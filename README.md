@@ -19,6 +19,39 @@ cd react-flipper
 npm install
 ```
 
+## Usaged
+
+```javascript
+class MySuperDuperAwesomeApp extends Component {
+  constructor (props) {
+    super (props);
+    this.state = { isFlipped: false };
+  }
+  _flip () {
+    this.setState ({ isFlipped: !this.state.isFlipped });
+  }
+  render () {
+    return <div>
+      <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
+        <Front style={{
+          minHeight: 250,
+          background: '#19489E'
+        }}>
+          /** PLACE FRONT CONTENT HERE **/
+        </Front>
+        <Back style={{
+          background: '#9E1919',
+          minHeight: 400
+        }}>
+          /** PLACE BACK CONTENT HERE **/
+        </Back>
+      </Flipper>
+    </div>
+  }
+}
+
+```
+
 ## Running for development
 - Bundle the static files and watch over development files
 ```
