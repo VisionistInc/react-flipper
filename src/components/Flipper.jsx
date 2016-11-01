@@ -8,16 +8,16 @@ class Flipper extends Component {
     this._setHeight = this._setHeight.bind (this);
     this._getStyles = this._getStyles.bind (this);
     this._getChildren = this._getChildren.bind (this);
-    this.state = { height: 250 };
+    this.state = { height: 30 };
   }
-  _setHeight (height) {
-    this.setState ({ height: height });
+  _setHeight (_height) {
+    this.setState ({ height: _height });
   }
   _getStyles () {
     return { height: this.state.height }
   }
   _getChildren () {
-    return React.Children.map (this.props.children, (child) => {
+    return React.Children.map (this.props.children, child => {
       return React.cloneElement (child, {
         isFront: !this.props.isFlipped,
         resize: this._setHeight
