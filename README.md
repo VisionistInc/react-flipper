@@ -51,6 +51,10 @@ class MySuperDuperAwesomeApp extends Component {
 }
 
 ```
+**A few things to note:**
+1. Both, front and back tiles, have no styles -- styling is completely up to you.
+2. **minHeight** is not necessary -- each tile will default to 30px; height is adjusted accordingly upon mount.
+
 
 ## Running for development
 - Bundle the static files and watch over development files
