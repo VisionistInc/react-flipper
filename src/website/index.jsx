@@ -26,14 +26,20 @@ class App extends Component {
         </div>
         <div className="example">
           <div className="flipper-containers">
+
             <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
-              <Front> I flip horizontally . . . </Front>
-              <Back></Back>
+              <Front style={{ minHeight: 250, background: '#19489E' }}>
+                I flip horizontally . . .
+              </Front>
+              <Back style={{ background: '#9E1919', minHeight: 400 }}></Back>
             </Flipper>
             <Flipper isFlipped={this.state.isFlipped} orientation="vertical">
-              <Front> . . . and I flip vertically </Front>
-              <Back></Back>
+              <Front style={{ minHeight: 250, background: '#19489E' }}>
+                . . . and I flip vertically
+              </Front>
+              <Back style={{ background: '#9E1919', minHeight: 325 }}></Back>
             </Flipper>
+
           </div>
           <div className="flipper-toggle">
             <button onClick={this._flip}>Click me to flip!</button>
