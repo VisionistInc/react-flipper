@@ -40,13 +40,16 @@ export default Object.assign ({}, webpackDistConfig, {
         loader: 'babel-loader',
         query: Object.assign ({}, babelrc, {
           babelrc: false,
-          presets: [
-            [ "es2015" , { "modules": false } ],
-              ...babelrc.presets.slice (1)
-          ],
+          presets: babelrc.presets.map ((preset) => {
+            if (preset === "es2015") {
+              return [ "es2015" , { "modules": false } ]
+            } else {
+              return preset;
+            }
+          }),
           plugins: [
             "react-hot-loader/babel",
-            ...babelrc.plugins
+            ...babelrc.plugins.filter ((plugin) => plugin !== "add-module-exports")
           ]
         })
       },

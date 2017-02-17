@@ -32,10 +32,7 @@ export const webpackDistConfig = {
       {
         test : /\.(js|jsx)?/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          plugins: ['add-module-exports']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.(ico|html)$/,

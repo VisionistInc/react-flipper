@@ -11,18 +11,21 @@ const packageJSON = JSON.parse (
   fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
 );
 
-function getExternals () {
+function externals () {
   const externals = {};
-  const { peerDependencies, dependencies } = packageJSON;
+  const {
+    peerDependencies,
+    dependencies
+  } = packageJSON;
 
-  const attach = (dependencies) => {
+  const set = (dependencies) => {
     Object.keys (dependencies).map ((dependency) => {
       externals[dependency] = dependency;
     });
   }
 
-  if (dependencies) attach (dependencies);
-  if (peerDependencies) attach (peerDependencies);
+  if (dependencies) set (dependencies);
+  if (peerDependencies) set (peerDependencies);
 
   return externals;
 }
@@ -37,7 +40,7 @@ export const webpackLibConfig = {
     library: packageJSON.name,
     libraryTarget: 'umd'
   },
-  externals: getExternals (),
+  externals: externals (),
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
@@ -56,10 +59,7 @@ export const webpackLibConfig = {
       {
         test : /\.(js|jsx)?/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          plugins: ['add-module-exports']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.(css|less)$/,
