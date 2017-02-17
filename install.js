@@ -5,7 +5,6 @@ var yarn = process.argv.slice (2)[0] === '--yarn';
 var packages = [
   'babel-loader',
   'babel-preset-es2015',
-  'babel-preset-react',
   'css-loader',
   'file-loader',
   'less',
