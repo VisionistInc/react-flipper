@@ -25,11 +25,7 @@ Make sure your are in the root of your project before proceeding.
   ```
   $ cp <prefix_path>/paths.js.default <prefix_path>/paths.js
   ```
-  This file is ignored by Git because this file can vary per project. If you want to add this file into version control, add it by using `--force`. This allows adding otherwise ignored files.
-  ```
-  $ git add --force <prefix_path>/paths.js
-  ```
-  This adds the file to your project repository but keeps it hidden from the subtree.
+  This file is ignored by Git because this file can vary per project.
 
 ### Note
 
