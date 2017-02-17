@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import gutil, { colors } from 'gulp-util';
 import {
   DIST_BUILD_DIR,
   DIST_INPUT_DIR
