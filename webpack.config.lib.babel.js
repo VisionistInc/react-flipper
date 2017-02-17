@@ -1,25 +1,44 @@
 import webpack from 'webpack';
 import path from 'path';
+import fs from 'fs';
 import gutil, { colors } from 'gulp-util';
+import {
+  LIB_BUILD_DIR,
+  LIB_INPUT_DIR,
+  PACKAGE_JSON
+} from './paths';
 
-const BUILD_DIR = path.resolve (__dirname, 'lib');
-const INPUT_DIR = path.resolve (__dirname, 'src', 'components');
+const packageJSON = JSON.parse (
+  fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
+);
+
+function getExternals () {
+  const externals = {};
+  const { peerDependencies, dependencies } = packageJSON;
+
+  const attach = (dependencies) => {
+    Object.keys (dependencies).map ((dependency) => {
+      externals[dependency] = dependency;
+    });
+  }
+
+  if (dependencies) attach (dependencies);
+  if (peerDependencies) attach (peerDependencies);
+
+  return externals;
+}
 
 export const webpackLibConfig = {
   entry: [
-    path.resolve (INPUT_DIR, 'index.js')
+    path.resolve (LIB_INPUT_DIR, 'index.js')
   ],
   output: {
-    path: BUILD_DIR,
+    path: LIB_BUILD_DIR,
     filename: 'index.js',
-    library: 'nanostorm-core',
+    library: packageJSON.name,
     libraryTarget: 'umd'
   },
-  externals: {
-    'react': 'react',
-    'react-dom': 'react-dom',
-    'visionist-semantic-ui': 'visionist-semantic-ui'
-  },
+  externals: getExternals (),
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },

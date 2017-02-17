@@ -1,18 +1,19 @@
 import webpack from 'webpack';
 import path from 'path';
 import gutil, { colors } from 'gulp-util';
-
-export const BUILD_DIR = path.resolve (__dirname, 'dist');
-export const INPUT_DIR = path.resolve (__dirname, 'src');
+import {
+  DIST_BUILD_DIR,
+  DIST_INPUT_DIR
+} from './paths';
 
 export const webpackDistConfig = {
   entry: [
-    path.resolve (INPUT_DIR, 'root.jsx'),
-    path.resolve (INPUT_DIR, 'index.html')
+    path.resolve (DIST_INPUT_DIR, 'root.jsx'),
+    path.resolve (DIST_INPUT_DIR, 'index.html')
   ],
   output: {
     filename: 'bundle.js',
-    path: BUILD_DIR,
+    path: DIST_BUILD_DIR,
     publicPath: '/'
   },
   devtool: 'source-map',
