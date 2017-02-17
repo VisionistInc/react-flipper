@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
 import fs from 'fs';
-import gutil, { colors } from 'gulp-util';
 import {
   LIB_BUILD_DIR,
   LIB_INPUT_DIR,
@@ -81,7 +80,7 @@ export const webpackLibConfig = {
 export function webpackLibCompiler (callback) {
   const compiler = webpack (webpackLibConfig);
   compiler.run ((error, stats) => {
-    gutil.log (`Successfully bundled '${colors.cyan ('lib')}'`)
+    console.log (`Successfully bundled 'lib'`)
     console.log (stats.toString ({ chunks: false, colors: true }));
     if (callback) callback ();
   });
@@ -90,7 +89,7 @@ export function webpackLibCompiler (callback) {
 export function webpackLibWatcher () {
   const compiler = webpack (webpackLibConfig);
   return compiler.watch ({}, (error, stats) => {
-    gutil.log (`Successfully bundled '${colors.cyan ('lib')}'`)
+    console.log (`Successfully bundled 'lib'`)
     console.log (stats.toString ({ chunks: false, colors: true }));
   });
 }

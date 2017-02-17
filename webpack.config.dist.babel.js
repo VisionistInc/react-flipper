@@ -68,7 +68,7 @@ export const webpackDistConfig = {
 export function webpackDistCompiler (callback) {
   const compiler = webpack (webpackDistConfig);
   compiler.run ((error, stats) => {
-    gutil.log (`Successfully bundled '${colors.cyan ('dist')}'`)
+    console.log (`Successfully bundled 'dist'`)
     console.log (stats.toString ({ chunks: false, colors: true }));
     if (callback) callback ();
   });
@@ -77,7 +77,7 @@ export function webpackDistCompiler (callback) {
 export function webpackDistWatcher () {
   const compiler = webpack (webpackDistConfig);
   return compiler.watch ({}, (error, stats) => {
-    gutil.log (`Successfully bundled '${colors.cyan ('dist')}'`)
+    console.log (`Successfully bundled 'dist'`)
     console.log (stats.toString ({ chunks: false, colors: true }));
   });
 }
