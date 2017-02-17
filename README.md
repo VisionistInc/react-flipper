@@ -62,11 +62,11 @@ $ webpack-dev-server --config <prefix_path>/webpack.config.hot.babel.js
 #### Module
 Use this one if you are building a library or Node module.
 ```
-$ webpack-dev-server --config <prefix_path>/webpack.config.lib.babel.js
+$ webpack --config <prefix_path>/webpack.config.lib.babel.js
 ```
 
 #### Application Distribution
 Use this one if you are building an application and want to bundle up the static files.
 ```
-$ webpack-dev-server --config <prefix_path>/webpack.config.dist.babel.js
+$ webpack --config <prefix_path>/webpack.config.dist.babel.js
 ```
