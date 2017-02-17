@@ -21,6 +21,15 @@ Make sure your are in the root of your project before proceeding.
   ```
   You can point your package.json scripts or the webpack server files (if you are using the Webpack and Webpack Dev Server Node API's) to the webpack config files living inside /config, but I prefer having the webpack config files living next to package.json in the root of my project.
 
+  * Create a `paths.js` file inside `<prefix_path>` and replace values accordingly
+  ```
+  $ cp <prefix_path>/paths.js.default <prefix_path>/paths.js
+  ```
+  This file is ignored by Git because this file can vary per project. If you want to add this file into version control, add it by using `--force`. This allows adding otherwise ignored files.
+  ```
+  $ git add --force <prefix_path>/paths.js
+  ```
+
 ## Pulling from this repository
 ```
 $ git subtree pull --prefix <prefix_path> <branch>
