@@ -6,7 +6,7 @@ React 'flipper' component that is agnostic to the height of its tiles, resizing 
 ## Get Started
 * Clone the repository
 ```
-$ git@gitlab.com:enriquecaballero/react-flipper.git
+$ git@github.com:VisionistInc/react-flipper.git
 ```
 
 * Go into the cloned repository's directory
