@@ -29,7 +29,7 @@ export default class Back extends Component {
     if (!this.props.isFront) this.props.resize (this._getHeight ());
   }
   _getHeight = () => {
-    return findDOMNode (this.refs.backTile).offsetHeight;
+    return ReactDOM.findDOMNode (this.refs.backTile).offsetHeight;
   }
   _getClassName = () => {
     return this.props.className
@@ -37,7 +37,7 @@ export default class Back extends Component {
       : 'back tile';
   }
   render () {
-    let { className, ...props } = this.props;
+    let { className, isFront, resize, ...props } = this.props;
     return <div className={this._getClassName ()} ref="backTile" {...props}>
       {this.props.children}
     </div>;
