@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Website from './website/';
 
-render (
+ReactDOM.render (
   <Website />,
   document.getElementById ('root')
 );
