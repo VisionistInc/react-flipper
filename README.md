@@ -19,7 +19,7 @@ cd react-flipper
 npm install
 ```
 
-## Usaged
+## Usage
 
 ```javascript
 class MySuperDuperAwesomeApp extends Component {
