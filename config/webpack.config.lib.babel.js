@@ -47,11 +47,6 @@ export const webpackLibConfig = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin ({
       beautify: true
-    }),
-    new webpack.DefinePlugin ({
-      'process.env.CORE_ENV': JSON.stringify (
-        'production'
-      )
     })
   ],
   module : {

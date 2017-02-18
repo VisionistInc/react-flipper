@@ -19,13 +19,6 @@ export const webpackDistConfig = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
-  plugins: [
-    new webpack.DefinePlugin ({
-      'process.env.CORE_ENV': JSON.stringify (
-        'development'
-      )
-    })
-  ],
   module : {
     rules : [
       {
