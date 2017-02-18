@@ -1,85 +1,68 @@
+# Shareable Webpack Config Files
 
-# React-Flipper
+## Adding to your project
+Make sure your are in the root of your project before proceeding.
 
-React 'flipper' component that is agnostic to the height of its tiles, resizing accordingly. No jQuery.
+  * Add remote that points to this repository
+  ```
+  $ git remote add <remote> git@github.com:enriquecaballero/webpack-config.git
+  ```
+  This will significantly simplify the commands, so that you do not have to specify the repository address all the time.
 
-## Get Started
-* Clone the repository
+  * Add as a git subtree to your existing repository
+  ```
+  $ git subtree add --prefix <prefix_path> <remote> <branch>
+  ```
+  You use subtree add to add this repository into a path in your project, specified by **prefix**. The last two parameters, respectively, are the remote you have just created and the branch you are pulling the code from (webpack-config/master).
+
+  * Symlink the webpack.config.* files to the root of your project (optional)
+  ```
+  $ ln -s <prefix_path>/webpack.config.* <root>
+  ```
+  You can point your `package.json` scripts or the webpack server files (if you are using the Webpack Node API and/or the Webpack Dev Server Node API) to the webpack config files living inside `<prefix_path>`. I prefer having the webpack config files living next to `package.json` in the root of my project, which is why I prefer to use symlinks. Up to you.
+
+  * Create a `paths.js` file inside `<prefix_path>` and replace values accordingly
+  ```
+  $ cp <prefix_path>/paths.js.default <prefix_path>/paths.js
+  ```
+  This file is ignored by Git because this file can vary per project.
+
+### Note
+
+This configuration assumes that an adequate babel configuration is present and that `babel-core` has already been installed in the project it is being added to.
+
+## Pulling from this repository
 ```
-$ git@gitlab.com:enriquecaballero/react-flipper.git
+$ git subtree pull --prefix <prefix_path> <branch>
 ```
 
-* Go into the cloned repository's directory
-```
-$ cd react-flipper
-```
+This will execute a pull, using the “subtree” merge strategy and generate a merge commit.
 
-* Install dependencies
+
+## Pushing to this repository
 ```
-$ npm install
+$ git subtree push --prefix <prefix_path> <branch>
 ```
+This will make git go through the commits and pick the changes that should be pushed to the repo. Files outside of the prefix directory get filtered out.
 
 ## Usage
+These webpack config files will work in any way you wish to use them (CLI, API, etc.).
 
-```javascript
-class MySuperDuperAwesomeApp extends Component {
-  constructor (props) {
-    super (props);
-    this.state = { isFlipped: false };
-  }
-  flip = () => {
-    this.setState ({ isFlipped: !this.state.isFlipped });
-  }
-  render () {
-    return <div>
-      <button onClick={this.flip}>
-        Flip!
-      </button>
-      <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
-        <Front style={{
-          minHeight: 250,
-          background: '#19489E'
-        }}>
-          /** PLACE FRONT CONTENT HERE **/
-        </Front>
-        <Back style={{
-          background: '#9E1919',
-          minHeight: 400
-        }}>
-          /** PLACE BACK CONTENT HERE **/
-        </Back>
-      </Flipper>
-    </div>
-  }
-}
-
+### Webpack Dev Server CLI
 ```
-**A few things to note:**
-1. Both, front and back tiles, have no styles -- styling is completely up to you.
-2. **minHeight** is not necessary -- each tile will default to 30px; height is adjusted accordingly upon mount.
-
-
-## Running for development
-```
-$ npm start
+$ webpack-dev-server --config <prefix_path>/webpack.config.hot.babel.js
 ```
 
-## Contributing
+### Webpack CLI
 
-Use GitHub to fork this project, make and commit your changes, and then [submit a new pull request](https://github.com/enriquecaballero/react-hello-world/pulls).
-
-### Updating `gh-pages`
-
-We're just using the `dist` directory on the `gh-pages` branch to showcase our [demo](./src/website/Website.jsx).
-
-After making your changes, run:
-
-```shell
-$ npm run build
-
-# !! commit your changes here !!
-
-$ git subtree push --prefix dist origin gh-pages
+#### Module
+Use this one if you are building a library or Node module.
+```
+$ webpack --config <prefix_path>/webpack.config.lib.babel.js
 ```
 
-This updates the bundled code in the `dist` directory, then you commit the updated source, then push the `dist` directory to the root of the `gh-pages` branch.
+#### Application Distribution
+Use this one if you are building an application and want to bundle up the static files.
+```
+$ webpack --config <prefix_path>/webpack.config.dist.babel.js
+```
