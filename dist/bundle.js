@@ -9784,7 +9784,7 @@ var _website2 = _interopRequireDefault(_website);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-render(_react2.default.createElement(_website2.default, null), document.getElementById('root'));
+_reactDom2.default.render(_react2.default.createElement(_website2.default, null), document.getElementById('root'));
 
 /***/ }),
 /* 85 */
