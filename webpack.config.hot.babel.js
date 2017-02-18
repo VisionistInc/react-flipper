@@ -28,8 +28,7 @@ export default Object.assign ({}, webpackDistConfig, {
   },
   plugins: [
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin (),
-    ...webpackDistConfig.plugins
+    new webpack.HotModuleReplacementPlugin ()
   ],
   module: {
     rules: [
