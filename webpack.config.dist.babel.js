@@ -1,18 +1,17 @@
 import webpack from 'webpack';
 import path from 'path';
 import {
-  DIST_BUILD_DIR,
-  DIST_INPUT_DIR
-} from './paths';
+  getEntry,
+  getOutput
+} from './internal';
 
 export const webpackDistConfig = {
   entry: [
-    path.resolve (DIST_INPUT_DIR, 'root.jsx'),
-    path.resolve (DIST_INPUT_DIR, 'index.html')
+    ...getEntry ('dist')
   ],
   output: {
     filename: 'bundle.js',
-    path: DIST_BUILD_DIR,
+    path: getOutput ('dist'),
     publicPath: '/'
   },
   devtool: 'source-map',
