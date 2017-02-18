@@ -2,45 +2,23 @@ import webpack from 'webpack';
 import path from 'path';
 import fs from 'fs';
 import {
-  LIB_BUILD_DIR,
-  LIB_INPUT_DIR,
-  PACKAGE_JSON
-} from './paths';
-
-const packageJSON = JSON.parse (
-  fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
-);
-
-function externals () {
-  const externals = {};
-  const {
-    peerDependencies,
-    dependencies
-  } = packageJSON;
-
-  const set = (dependencies) => {
-    Object.keys (dependencies).map ((dependency) => {
-      externals[dependency] = dependency;
-    });
-  }
-
-  if (dependencies) set (dependencies);
-  if (peerDependencies) set (peerDependencies);
-
-  return externals;
-}
+  getEntry,
+  getOutput,
+  getExternals,
+  packageJSON
+} from './internal';
 
 export const webpackLibConfig = {
   entry: [
-    path.resolve (LIB_INPUT_DIR, 'index.js')
+    ...getEntry ('lib')
   ],
   output: {
-    path: LIB_BUILD_DIR,
+    path: getOutput ('lib'),
     filename: 'index.js',
     library: packageJSON.name,
     libraryTarget: 'umd'
   },
-  externals: externals (),
+  externals: getExternals (),
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },

@@ -3,33 +3,27 @@ import path from 'path';
 import fs from 'fs';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
-  DIST_BUILD_DIR,
-  DIST_INPUT_DIR,
-  BABEL_RC
-} from './paths';
-
-const babelrc = JSON.parse (
-  fs.readFileSync (path.resolve (BABEL_RC), 'utf8')
-);
+  babelrc,
+  getEntry,
+  getOutput
+} from './internal';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
-    path.resolve (DIST_INPUT_DIR, 'root.hot.jsx'),
-    path.resolve (DIST_INPUT_DIR, 'index.html')
+    ...getEntry ('hot')
   ],
   devtool: 'eval',
   devServer: {
     hot: true,
-    contentBase: DIST_BUILD_DIR,
+    contentBase: getOutput ('dist'),
     publicPath: '/',
     stats: { colors: true }
   },
   plugins: [
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin (),
-    ...webpackDistConfig.plugins
+    new webpack.HotModuleReplacementPlugin ()
   ],
   module: {
     rules: [
