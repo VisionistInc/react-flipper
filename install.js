@@ -1,3 +1,4 @@
+/* eslint-disable no-var, camelcase, import/newline-after-import */
 /* Installs the necessary packages for the webpack config files to work. */
 
 var child_process = require ('child_process');

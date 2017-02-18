@@ -1,6 +1,6 @@
+/* eslint-disable no-console */
+
 import webpack from 'webpack';
-import path from 'path';
-import fs from 'fs';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
   babelrc,
@@ -29,25 +29,24 @@ export default Object.assign ({}, webpackDistConfig, {
     rules: [
       ...webpackDistConfig.module.rules.slice (0, 0),
       {
-        test : /\.(js|jsx)?/,
+        test: /\.(js|jsx)?/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: Object.assign ({}, babelrc, {
           babelrc: false,
           presets: babelrc.presets.map ((preset) => {
-            if (preset === "es2015") {
-              return [ "es2015" , { "modules": false } ]
-            } else {
-              return preset;
+            if (preset === 'es2015') {
+              return [ 'es2015', { modules: false } ];
             }
+            return preset;
           }),
           plugins: [
-            "react-hot-loader/babel",
-            ...babelrc.plugins.filter ((plugin) => plugin !== "add-module-exports")
+            'react-hot-loader/babel',
+            ...babelrc.plugins.filter (plugin => plugin !== 'add-module-exports')
           ]
         })
       },
-      ...webpackDistConfig.module.rules.slice (1),
+      ...webpackDistConfig.module.rules.slice (1)
     ]
   }
 });

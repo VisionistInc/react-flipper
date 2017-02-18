@@ -1,6 +1,6 @@
+/* eslint-disable no-console */
+
 import webpack from 'webpack';
-import path from 'path';
-import fs from 'fs';
 import {
   getEntry,
   getOutput,
@@ -20,17 +20,17 @@ export const webpackLibConfig = {
   },
   externals: getExternals (),
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin ({
       beautify: true
     })
   ],
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
-        test : /\.(js|jsx)?/,
+        test: /\.(js|jsx)?/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
@@ -53,7 +53,7 @@ export const webpackLibConfig = {
 export function webpackLibCompiler (callback) {
   const compiler = webpack (webpackLibConfig);
   compiler.run ((error, stats) => {
-    console.log (`Successfully bundled 'lib'`)
+    console.log ('Successfully bundled \'lib\'');
     console.log (stats.toString ({ chunks: false, colors: true }));
     if (callback) callback ();
   });
@@ -62,7 +62,7 @@ export function webpackLibCompiler (callback) {
 export function webpackLibWatcher () {
   const compiler = webpack (webpackLibConfig);
   return compiler.watch ({}, (error, stats) => {
-    console.log (`Successfully bundled 'lib'`)
+    console.log ('Successfully bundled \'lib\'');
     console.log (stats.toString ({ chunks: false, colors: true }));
   });
 }
