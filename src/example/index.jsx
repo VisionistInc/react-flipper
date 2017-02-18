@@ -1,34 +1,32 @@
+/* @flow */
+
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { Flipper, Front, Back } from '../components/';
 
-class App extends Component {
-  constructor (props) {
-    super (props);
-    this._flip = this._flip.bind (this);
-    this.state = { isFlipped: false };
-  }
-  _flip () {
-    this.setState ({ isFlipped: !this.state.isFlipped });
-  }
-  render () {
-    return <div>
-      <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
-        <Front></Front>
-        <Back></Back>
-      </Flipper>
-      <Flipper isFlipped={this.state.isFlipped} orientation="vertical">
-        <Front></Front>
-        <Back></Back>
-      </Flipper>
-      <div className="button-container">
-        <button onClick={this._flip}>Flip!</button>
-      </div>
-    </div>
-  }
+type State = {
+  isFlipped: boolean
 }
 
-render (
-  <App />,
-  document.getElementById ('app-content')
-);
+export default class Example extends Component {
+  state: State = {
+    isFlipped: false
+  };
+  flip = (): void => {
+    this.setState ({ isFlipped: !this.state.isFlipped });
+  }
+  render (): ?React$Element<any> {
+    return <div>
+      <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
+        <Front />
+        <Back />
+      </Flipper>
+      <Flipper isFlipped={this.state.isFlipped} orientation="vertical">
+        <Front />
+        <Back />
+      </Flipper>
+      <div className="button-container">
+        <button onClick={this.flip}>Flip!</button>
+      </div>
+    </div>;
+  }
+}

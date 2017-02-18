@@ -1,44 +1,50 @@
+/* @flow */
+/* eslint-disable react/no-find-dom-node */
+/* eslint-disable react/no-string-refs */
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+type Props = {
+  isFront: boolean,
+  resize: Function,
+  className?: string,
+  children?: any
+};
+
 export default class Back extends Component {
-  constructor (props) {
+  constructor (props: Props): void {
     super (props);
   }
-  componentDidMount () {
-    this._resize ();
-
-    /** Adds an event listener to the contents inside the subtree;
-        this will resize the flipper whenever the subtree contents change **/
+  componentDidMount (): void {
+    this.resize ();
     ReactDOM.findDOMNode (this)
-      .addEventListener ('DOMSubtreeModified', this._resize);
+      .addEventListener ('DOMSubtreeModified', this.resize);
   }
-  componentWillUnmount () {
-    /** As our component will unmount, the active event listener
-        is no longer needed, therefore it is important to remove it **/
-    ReactDOM.findDOMNode (this)
-      .removeEventListener ('DOMSubtreeModified', this._resize);
-  }
-  componentDidUpdate () {
-    this._resize ();
-  }
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate (nextProps: Props): boolean {
     return this.props.isFront !== nextProps.isFront;
   }
-  _resize = () => {
-    if (!this.props.isFront) this.props.resize (this._getHeight ());
+  componentDidUpdate (): void {
+    this.resize ();
   }
-  _getHeight = () => {
+  componentWillUnmount (): void {
+    ReactDOM.findDOMNode (this)
+      .removeEventListener ('DOMSubtreeModified', this.resize);
+  }
+  getHeight = (): number => {
     return ReactDOM.findDOMNode (this.refs.backTile).offsetHeight;
   }
-  _getClassName = () => {
+  getClassName = (): string => {
     return this.props.className
-      ? ('back tile ' + this.props.className)
+      ? (`back tile ${this.props.className}`)
       : 'back tile';
   }
-  render () {
-    let { className, isFront, resize, ...props } = this.props;
-    return <div className={this._getClassName ()} ref="backTile" {...props}>
+  resize = (): void => {
+    if (!this.props.isFront) this.props.resize (this.getHeight ());
+  }
+  render (): ?React$Element<any> {
+    const { className, isFront, resize, ...props } = this.props;
+    return <div className={this.getClassName ()} ref="backTile" {...props}>
       {this.props.children}
     </div>;
   }

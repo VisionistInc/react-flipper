@@ -1,0 +1,65 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "arrow-body-style": 0,
+    "array-bracket-spacing": [2, "always"],
+    "comma-dangle": [2, "never"],
+    "flowtype/use-flow-type": 1,
+    "flowtype/define-flow-type": 1,
+    "func-call-spacing": [2, "always", {
+      "allowNewlines": true
+    }],
+    "func-names": 0,
+    "global-require": 0,
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": true
+    }],
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": 0,
+    "no-console": [2, {
+      "allow": [
+        "warn",
+        "error",
+        "info"
+      ]
+    }],
+    "no-param-reassign": 1,
+    "no-path-concat": 2,
+    "no-spaced-func": 0,
+    "no-unused-vars": [ 2, { 
+      "ignoreRestSiblings": true
+    }],
+    "no-useless-constructor": 0,
+    "no-var": 1,
+    "prefer-template" : 2,
+    "prefer-arrow-callback": 2,
+    "quote-props": [1, "as-needed"],
+    "react/jsx-wrap-multilines": [2, {
+      "return": false,
+      "declaration": false,
+      "assignment": false
+    }],
+    "react/prefer-stateless-function": [1],
+    "semi": [2, "always", {
+      "omitLastInOneLineBlock": true
+    }],
+    "space-before-function-paren": [2, "always"]
+  },
+  "plugins": [
+    "babel",
+    "react",
+    "flowtype"
+  ]
+}

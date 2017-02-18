@@ -1,37 +1,54 @@
+/* @flow */
+/* eslint-disable react/no-find-dom-node */
+/* eslint-disable react/no-string-refs */
+
 import React, { Component } from 'react';
 
 require ('./index.less');
+
+type Props = {
+  isFlipped: boolean,
+  orientation: string,
+  children?: any
+}
 
 export default class Flipper extends Component {
   static defaultProps = {
     isFlipped: false,
     orientation: 'horizontal'
   }
-  constructor (props) {
+  constructor (props: Props): void {
     super (props);
     this.state = { height: 30 };
   }
-  _setHeight = (_height) => {
+  state: {
+    height: number
+  }
+  setHeight = (_height: number): void => {
     this.setState ({ height: _height });
   }
-  _getStyles = () => {
-    return { height: this.state.height }
+  getStyles = (): $Shape<{ height: number }> => {
+    return { height: this.state.height };
   }
-  _getChildren = () => {
-    return React.Children.map (this.props.children, child => {
+  getChildren = (): Array<React$Element<any>> => {
+    return React.Children.map (this.props.children, (child) => {
       return React.cloneElement (child, {
         isFront: !this.props.isFlipped,
-        resize: this._setHeight
+        resize: this.setHeight
       });
     });
   }
-  render () {
-      return <div
-        style={this._getStyles ()}
-        className={"flipper-container " + this.props.orientation} ref="flipperContainer">
+  render (): ?React$Element<any> {
+    return <div
+      style={this.getStyles ()}
+      className={`flipper-container ${this.props.orientation}`}
+      ref="flipperContainer"
+    >
       <div
-        className={"flipper" + (this.props.isFlipped ? " flipped" : "")} ref="flipper">
-        {this._getChildren ()}
+        className={`flipper${this.props.isFlipped ? ' flipped' : ''}`}
+        ref="flipper"
+      >
+        {this.getChildren ()}
       </div>
     </div>;
   }

@@ -1,17 +1,20 @@
+/* @flow */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Website from './website/';
 
+declare var module: any;
+
 const render = (Component) => {
-  ReactDOM.render(
+  ReactDOM.render (
     <AppContainer>
-      <Component/>
+      <Component />
     </AppContainer>,
     document.getElementById ('root')
   );
 };
-
 
 render (Website);
 
