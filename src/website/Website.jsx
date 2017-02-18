@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import { Flipper, Front, Back } from '../components/';
+import {
+  Flipper,
+  Front,
+  Back
+} from '../components/';
 
-require ('./index.less');
+require ('./Website.less');
 
-class App extends Component {
+export default class Website extends Component {
   constructor (props) {
     super (props);
-    this._flip = this._flip.bind (this);
     this.state = { isFlipped: false };
   }
-  _flip () {
+  _flip = () => {
     this.setState ({ isFlipped: !this.state.isFlipped });
   }
-  _fork () {
+  _fork = () => {
     window.location = "https://github.com/VisionistInc/react-flipper";
   }
   render () {
@@ -26,7 +28,6 @@ class App extends Component {
         </div>
         <div className="example">
           <div className="flipper-containers">
-
             <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
               <Front style={{ minHeight: 250, background: '#19489E' }}>
                 I flip horizontally . . .
@@ -39,7 +40,6 @@ class App extends Component {
               </Front>
               <Back style={{ background: '#9E1919', minHeight: 325 }}></Back>
             </Flipper>
-
           </div>
           <div className="flipper-toggle">
             <button onClick={this._flip}>Click me to flip!</button>
@@ -55,8 +55,3 @@ class App extends Component {
       </div>
   }
 }
-
-render (
-  <App />,
-  document.getElementById ('app-content')
-);

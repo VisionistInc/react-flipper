@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 
 require ('./index.less');
 
-class Flipper extends Component {
+export default class Flipper extends Component {
+  static defaultProps = {
+    isFlipped: false,
+    orientation: 'horizontal'
+  }
   constructor (props) {
     super (props);
-    this._setHeight = this._setHeight.bind (this);
-    this._getStyles = this._getStyles.bind (this);
-    this._getChildren = this._getChildren.bind (this);
     this.state = { height: 30 };
   }
-  _setHeight (_height) {
+  _setHeight = (_height) => {
     this.setState ({ height: _height });
   }
-  _getStyles () {
+  _getStyles = () => {
     return { height: this.state.height }
   }
-  _getChildren () {
+  _getChildren = () => {
     return React.Children.map (this.props.children, child => {
       return React.cloneElement (child, {
         isFront: !this.props.isFlipped,
@@ -35,10 +36,3 @@ class Flipper extends Component {
     </div>;
   }
 }
-
-Flipper.defaultProps = {
-  isFlipped: false,
-  orientation: 'horizontal'
-};
-
-export default Flipper;

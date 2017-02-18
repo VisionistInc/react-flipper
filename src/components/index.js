@@ -1,5 +1,3 @@
-import Flipper from './Flipper';
-import Front from './Front';
-import Back from './Back';
-
-export default { Flipper, Front, Back };
+export { default as Flipper } from './Flipper';
+export { default as Frontm } from './Front';
+export { default as Back } from './Back';
