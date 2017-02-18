@@ -6,17 +6,17 @@ React 'flipper' component that is agnostic to the height of its tiles, resizing 
 ## Get Started
 * Clone the repository
 ```
-git@gitlab.com:enriquecaballero/react-flipper.git
+$ git@gitlab.com:enriquecaballero/react-flipper.git
 ```
 
 * Go into the cloned repository's directory
 ```
-cd react-flipper
+$ cd react-flipper
 ```
 
 * Install dependencies
 ```
-npm install
+$ npm install
 ```
 
 ## Usage
@@ -27,11 +27,14 @@ class MySuperDuperAwesomeApp extends Component {
     super (props);
     this.state = { isFlipped: false };
   }
-  _flip () {
+  flip = () => {
     this.setState ({ isFlipped: !this.state.isFlipped });
   }
   render () {
     return <div>
+      <button onClick={this.flip}>
+        Flip!
+      </button>
       <Flipper isFlipped={this.state.isFlipped} orientation="horizontal">
         <Front style={{
           minHeight: 250,
@@ -57,23 +60,26 @@ class MySuperDuperAwesomeApp extends Component {
 
 
 ## Running for development
-- Bundle the static files and watch over development files
 ```
-npm run dev
-```
-- Open ```dist/index.html``` in your browser and refresh upon making a change -- webpack should have already rebundled your static files.
-
-## Prepare for publishing
-Bundled static files will live inside the ```lib``` directory
-```
-+ lib/
-    \-- index.js
+$ npm start
 ```
 
-- Build the component library
+## Contributing
 
-  ```
-  npm run build
-  ```
+Use GitHub to fork this project, make and commit your changes, and then [submit a new pull request](https://github.com/enriquecaballero/react-hello-world/pulls).
 
-Deploy to GitHub Pages
+### Updating `gh-pages`
+
+We're just using the `dist` directory on the `gh-pages` branch to showcase our [demo](./src/website/Website.jsx).
+
+After making your changes, run:
+
+```shell
+$ npm run build
+
+# !! commit your changes here !!
+
+$ git subtree push --prefix dist origin gh-pages
+```
+
+This updates the bundled code in the `dist` directory, then you commit the updated source, then push the `dist` directory to the root of the `gh-pages` branch.
