@@ -19,12 +19,13 @@ export const webpackrc = JSON.parse (
 
 export function getExternals () {
   const externals = {};
-  const { peerDependencies, dependencies } = packageJSON
-  const set = (dependencies) => {
-    Object.keys (dependencies).map ((dependency) => {
+  const { peerDependencies, dependencies } = packageJSON;
+  const set = (_dependencies) => {
+    // eslint-disable-next-line array-callback-return
+    Object.keys (_dependencies).map ((dependency) => {
       externals[dependency] = dependency;
     });
-  }
+  };
 
   if (dependencies) set (dependencies);
   if (peerDependencies) set (peerDependencies);
