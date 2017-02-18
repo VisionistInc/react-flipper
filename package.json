@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --config webpack.config.hot.babel.js",
     "build": "npm run build:lib && npm run build:dist",
     "build:lib": "webpack --config webpack.config.lib.babel.js",
-    "build:dist": "webpack --config webpack.config.dist.js"
+    "build:dist": "webpack --config webpack.config.dist.babel.js"
   },
   "license": "ISC",
   "peerDependencies": {
@@ -23,6 +23,7 @@
     "babel-plugin-transform-function-bind": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
     "css-loader": "^0.26.1",
     "file-loader": "^0.10.0",
     "less": "^2.7.2",
