@@ -1,1 +1,1 @@
-config/webpack.config.hot.babel.js
+webpack/webpack.config.hot.babel.js

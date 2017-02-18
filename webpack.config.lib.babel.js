@@ -1,1 +1,1 @@
-config/webpack.config.lib.babel.js
+webpack/webpack.config.lib.babel.js
