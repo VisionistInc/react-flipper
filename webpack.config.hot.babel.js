@@ -35,7 +35,7 @@ export default Object.assign ({}, webpackDistConfig, {
         test: /\.(js|jsx)?/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: Object.assign ({}, babelrc, {
+        options: Object.assign ({}, babelrc, {
           babelrc: false,
           presets: babelrc.presets.map ((preset) => {
             if (preset === 'es2015') {
