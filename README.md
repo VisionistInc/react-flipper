@@ -1,10 +1,8 @@
 # Shareable Webpack Config Files
 
-
 ## Before you proceed
 
 This configuration assumes that an adequate babel configuration is present in your project and that `babel-core` has already been installed in the project it is being added to.
-
 
 ## Adding to your project
   * Add this repository as a submodule.
@@ -24,7 +22,6 @@ This configuration assumes that an adequate babel configuration is present in yo
   $ ln -s <path>/webpack.config.* <root>
   ```
   You can point your scripts or CLI's to the webpack config files living inside `<path>`. I prefer having the webpack config files living next to `package.json` in the root of my project, which is why I prefer to use symlinks. Up to you.
-
 
 ## Pulling from this repository
   * Using `update`
