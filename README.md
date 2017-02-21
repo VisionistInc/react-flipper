@@ -1,49 +1,46 @@
 # Shareable Webpack Config Files
 
+
+## Before you proceed
+
+This configuration assumes that an adequate babel configuration is present in your project and that `babel-core` has already been installed in the project it is being added to.
+
+
 ## Adding to your project
-Make sure your are in the root of your project before proceeding.
+  * Add this repository as a submodule.
+  ```
+  $ git submodule add <repository> <path>
+  ```
+  This will clone the repository into the provided `<path>` and initialize it as a submodule.
 
-  * Add remote that points to this repository
+  * Create a `.webpackrc` file in the root of your project -- an example `webpackrc.default` is provided.
   ```
-  $ git remote add <remote> git@github.com:enriquecaballero/webpack-config.git
+  $ cp <path>/webpackrc.default <root>/.webpackrc
   ```
-  This will significantly simplify the commands, so that you do not have to specify the repository address all the time.
+  This file holds the entry and output points your webpack config files will be leveraging. Modify these entry and output points to better fit your project if needed.
 
-  * Add as a git subtree to your existing repository
+  * **OPTIONAL** / Symlink the webpack config files to the root of your project.
   ```
-  $ git subtree add --prefix <prefix_path> <remote> <branch>
+  $ ln -s <path>/webpack.config.* <root>
   ```
-  You use subtree add to add this repository into a path in your project, specified by **prefix**. The last two parameters, respectively, are the remote you have just created and the branch you are pulling the code from (webpack-config/master).
+  You can point your scripts or CLI's to the webpack config files living inside `<path>`. I prefer having the webpack config files living next to `package.json` in the root of my project, which is why I prefer to use symlinks. Up to you.
 
-  * Symlink the webpack.config.* files to the root of your project (optional)
-  ```
-  $ ln -s <prefix_path>/webpack.config.* <root>
-  ```
-  You can point your `package.json` scripts or the webpack server files (if you are using the Webpack Node API and/or the Webpack Dev Server Node API) to the webpack config files living inside `<prefix_path>`. I prefer having the webpack config files living next to `package.json` in the root of my project, which is why I prefer to use symlinks. Up to you.
-
-  * Create a `paths.js` file inside `<prefix_path>` and replace values accordingly
-  ```
-  $ cp <prefix_path>/paths.js.default <prefix_path>/paths.js
-  ```
-  This file is ignored by Git because this file can vary per project.
-
-### Note
-
-This configuration assumes that an adequate babel configuration is present and that `babel-core` has already been installed in the project it is being added to.
 
 ## Pulling from this repository
-```
-$ git subtree pull --prefix <prefix_path> <branch>
-```
+  * Using `update`
+  ```
+  $ git submodule update --init --recursive
+  ```
+  This command will recurse into the registered submodules, update and initialize (if required) them and any nested submodules within.
 
-This will execute a pull, using the “subtree” merge strategy and generate a merge commit.
+  * Using `foreach`
+  ```
+  git submodule foreach --recursive git submodule update --init
+  ```
+  This command will evaluate the command in each checked out submodule. So it will update and init (if required) each submodule and any nested submodules within due to --recursive.
 
+In the end, both commands achieve the same thing. Only the execution differs: the first command won't step into each directory to execute the command.
 
-## Pushing to this repository
-```
-$ git subtree push --prefix <prefix_path> <branch>
-```
-This will make git go through the commits and pick the changes that should be pushed to the repo. Files outside of the prefix directory get filtered out.
 
 ## Usage
 These webpack config files will work in any way you wish to use them (CLI, API, etc.).
@@ -55,13 +52,13 @@ $ webpack-dev-server --config <prefix_path>/webpack.config.hot.babel.js
 
 ### Webpack CLI
 
-#### Module
+#### Module / Library
 Use this one if you are building a library or Node module.
 ```
 $ webpack --config <prefix_path>/webpack.config.lib.babel.js
 ```
 
-#### Application Distribution
+#### Distribution
 Use this one if you are building an application and want to bundle up the static files.
 ```
 $ webpack --config <prefix_path>/webpack.config.dist.babel.js
