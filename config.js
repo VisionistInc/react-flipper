@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import path from 'path';
 import fs from 'fs';
 
@@ -52,7 +53,9 @@ export function getPlugins (type) {
     if (plugin instanceof Array) {
       const module = plugin[0];
       const options = plugin.filter ((_, i) => i !== 0);
-      return new require (module) (...options);
+      return module.includes ('webpack.')
+        ? new webpack[module.replace ('webpack.', '')] (...options)
+        : new require (module) (...options);
     }
     return new require (plugin);
   });
