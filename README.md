@@ -21,14 +21,7 @@ This configuration assumes that an adequate babel configuration is present in yo
   ```
   $ node <path>
   ```
-  This will spawn a child process that will install the necessary dependencies for these webpack config files to work.
-
-    * Using `yarn`
-    ```
-    $ node <path> --yarn
-    ```
-    This indicates to the script that you would rather use `yarn` to install dependencies instead of `npm`.
-
+  This will spawn a child process that will install the necessary dependencies for these webpack config files to work. Add `--yarn` to this command to use `yarn` instead of `npm`.
 
   * **OPTIONAL** / Symlink the webpack config files to the root of your project.
   ```
