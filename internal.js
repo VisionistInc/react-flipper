@@ -3,7 +3,7 @@ import fs from 'fs';
 
 const PACKAGE_JSON = path.resolve (process.cwd (), 'package.json');
 const BABEL_RC = path.resolve (process.cwd (), '.babelrc');
-const WEBPACK_RC = path.resolve (process.cwd (), 'webpack.config');
+const WEBPACK_RC = path.resolve (process.cwd (), '.webpackrc');
 
 export const packageJSON = JSON.parse (
   fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
