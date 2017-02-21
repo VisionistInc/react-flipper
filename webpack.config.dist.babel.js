@@ -3,7 +3,8 @@
 import webpack from 'webpack';
 import {
   getEntry,
-  getOutput
+  getOutput,
+  getPlugins
 } from './config';
 
 export const webpackDistConfig = {
@@ -19,6 +20,9 @@ export const webpackDistConfig = {
   resolve: {
     extensions: [ '*', '.js', '.jsx' ]
   },
+  plugins: [
+    ...getPlugins ('dist')
+  ],
   module: {
     rules: [
       {

@@ -1,11 +1,12 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-named-as-default */
 
 import webpack from 'webpack';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
   babelrc,
   getEntry,
-  getOutput
+  getOutput,
+  getPlugins
 } from './config';
 
 export default Object.assign ({}, webpackDistConfig, {
@@ -23,7 +24,8 @@ export default Object.assign ({}, webpackDistConfig, {
   },
   plugins: [
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin ()
+    new webpack.HotModuleReplacementPlugin (),
+    ...getPlugins ('hot')
   ],
   module: {
     rules: [

@@ -3,7 +3,7 @@ import fs from 'fs';
 
 const PACKAGE_JSON = path.resolve (process.cwd (), 'package.json');
 const BABEL_RC = path.resolve (process.cwd (), '.babelrc');
-const WEBPACK_RC = path.resolve (process.cwd (), '.webpackrc');
+const WEBPACK_CONFIG = path.resolve (process.cwd (), '.webpackconfig');
 
 export const packageJSON = JSON.parse (
   fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
@@ -13,8 +13,8 @@ export const babelrc = JSON.parse (
   fs.readFileSync (path.resolve (BABEL_RC), 'utf8')
 );
 
-export const webpackrc = JSON.parse (
-  fs.readFileSync (path.resolve (WEBPACK_RC), 'utf8')
+export const webpackConfig = JSON.parse (
+  fs.readFileSync (path.resolve (WEBPACK_CONFIG), 'utf8')
 );
 
 export function getExternals () {
@@ -34,13 +34,27 @@ export function getExternals () {
 }
 
 export function getEntry (type) {
-  const { entry } = webpackrc[type];
+  const { entry } = webpackConfig[type];
   return entry instanceof Array
     ? entry.map (_path => path.resolve (_path))
     : [ path.resolve (entry) ];
 }
 
 export function getOutput (type) {
-  const { output } = webpackrc[type];
+  const { output } = webpackConfig[type];
   return path.resolve (output);
 }
+
+/* eslint-disable no-new-require, new-cap */
+export function getPlugins (type) {
+  if (!webpackConfig[type].plugins) return [];
+  return webpackConfig[type].plugins.map ((plugin) => {
+    if (plugin instanceof Array) {
+      const module = plugin[0];
+      const options = plugin.filter ((_, i) => i !== 0);
+      return new require (module) (...options);
+    }
+    return new require (plugin);
+  });
+}
+/* eslint-enables no-new-require, new-cap */
