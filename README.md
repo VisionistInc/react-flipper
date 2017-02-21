@@ -23,34 +23,23 @@ This configuration assumes that an adequate babel configuration is present in yo
   ```
   You can point your scripts or CLI's to the webpack config files living inside `<path>`. I prefer having the webpack config files living next to `package.json` in the root of my project, which is why I prefer to use symlinks. Up to you.
 
+## Initializing the submodule
+```
+$ git submodule update --init --recursive
+```
+This command will recurse into the registered submodules, update and initialize (if required) them and any nested submodules within.
+
 ## Pulling from this repository
-  * Using `update`
-  ```
-  $ git submodule update --init --recursive
-  ```
-  This command will recurse into the registered submodules, update and initialize (if required) them and any nested submodules within.
-
-  * Using `foreach`
-  ```
-  $ git submodule foreach --recursive git submodule update --init
-  ```
-  This command will evaluate the command in each checked out submodule. So it will update and init (if required) each submodule and any nested submodules within due to --recursive.
-
-In the end, both commands achieve the same thing. Only the execution differs: the first command won't step into each directory to execute the command.
+```
+$ git submodule foreach --recursive git pull
+```
+This command will evaluate the command in each checked out submodule.
 
 ## Pushing to this repository
-  * Pushing to defaults
-  ```
-  $ git submodule foreach --recursive git push
-  ```
-  This command will evaluate the command in each checked out submodule. So it will push each submodule and any nested submodules within to their respective default branches due to --recursive.
-
-  * Pushing to another remote or branch
-  ```
-  $ cd <path>
-  $ git push -u <remote> <branch>
-  ```
-  You will need to `cd` into every individual submodule and push like you would any other repository.
+```
+$ git submodule foreach --recursive git push
+```
+This command will evaluate the command in each checked out submodule.
 
 ## Usage
 These webpack config files will work in any way you wish to use them (CLI, API, etc.).
