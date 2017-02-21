@@ -6,7 +6,7 @@ import {
   babelrc,
   getEntry,
   getOutput
-} from './internal';
+} from './webpackrc';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [

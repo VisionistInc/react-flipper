@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import {
   getEntry,
   getOutput
-} from './internal';
+} from './webpackrc';
 
 export const webpackDistConfig = {
   entry: [
