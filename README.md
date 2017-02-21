@@ -17,6 +17,19 @@ This configuration assumes that an adequate babel configuration is present in yo
   ```
   This file holds the entry and output points your webpack config files will be leveraging. Modify these entry and output points to better fit your project if needed.
 
+  * Install dependencies.
+  ```
+  $ node <path>
+  ```
+  This will spawn a child process that will install the necessary dependencies for these webpack config files to work.
+
+    * Using `yarn`
+    ```
+    $ node <path> --yarn
+    ```
+    This indicates to the script that you would rather use `yarn` to install dependencies instead of `npm`.
+
+
   * **OPTIONAL** / Symlink the webpack config files to the root of your project.
   ```
   $ ln -s <path>/webpack.config.* <root>
