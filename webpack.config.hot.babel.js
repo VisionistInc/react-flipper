@@ -6,7 +6,7 @@ import {
   babelrc,
   getEntry,
   getOutput
-} from './webpackrc';
+} from './config';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [

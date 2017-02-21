@@ -6,7 +6,7 @@ import {
   getOutput,
   getExternals,
   packageJSON
-} from './webpackrc';
+} from './config';
 
 export const webpackLibConfig = {
   entry: [
