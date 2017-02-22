@@ -8,7 +8,8 @@
     "start": "webpack-dev-server --config webpack.config.hot.babel.js",
     "build": "npm run build:lib && npm run build:dist",
     "build:lib": "webpack --config webpack.config.lib.babel.js",
-    "build:dist": "webpack --config webpack.config.dist.babel.js"
+    "build:dist": "webpack --config webpack.config.dist.babel.js",
+    "subtree:merge": "git subtree merge --prefix webpack webpack-config/master"
   },
   "license": "ISC",
   "peerDependencies": {
