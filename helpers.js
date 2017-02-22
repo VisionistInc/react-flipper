@@ -7,7 +7,7 @@ export const ROOT = process.cwd ();
 
 export const packageJSON = JSON.parse (
   fs.readFileSync (path.resolve (
-    path.resolve (__dirname, 'package.json')
+    path.resolve (ROOT, 'package.json')
   ), 'utf8')
 );
 
