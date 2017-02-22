@@ -6,7 +6,7 @@ import webpackDistConfig from './webpack.config.dist.babel';
 import {
   ROOT,
   babelrc
-} from './config';
+} from './helpers';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
