@@ -1,17 +1,19 @@
 /* eslint-disable no-console */
 
 import webpack from 'webpack';
+import path from 'path';
 import {
+  ROOT,
   externals,
   packageJSON
 } from './config';
 
 export const webpackLibConfig = {
   entry: [
-    './src/components/index.js'
+    path.resolve (ROOT, 'src/components/index.js')
   ],
   output: {
-    path: './lib',
+    path: path.resolve (ROOT, 'lib'),
     filename: 'index.js',
     library: packageJSON.name,
     libraryTarget: 'umd'

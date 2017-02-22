@@ -1,15 +1,17 @@
 /* eslint-disable no-console */
 
 import webpack from 'webpack';
+import path from 'path';
+import { ROOT } from './config';
 
 export const webpackDistConfig = {
   entry: [
-    './src/root.jsx',
-    './src/index.html'
+    path.resolve (ROOT, 'src/root.jsx'),
+    path.resolve (ROOT, 'src/index.html')
   ],
   output: {
     filename: 'bundle.js',
-    path: './dist',
+    path: path.resolve (ROOT, 'dist'),
     publicPath: '/'
   },
   devtool: 'source-map',

@@ -3,18 +3,21 @@
 import path from 'path';
 import fs from 'fs';
 
-const PACKAGE_JSON = path.resolve (process.cwd (), 'package.json');
-const BABEL_RC = path.resolve (process.cwd (), '.babelrc');
+export const ROOT = process.cwd ();
 
 export const packageJSON = JSON.parse (
-  fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
+  fs.readFileSync (path.resolve (
+    path.resolve (ROOT, 'package.json')
+  ), 'utf8')
 );
 
 export const babelrc = JSON.parse (
-  fs.readFileSync (path.resolve (BABEL_RC), 'utf8')
+  fs.readFileSync (path.resolve (
+    path.resolve (ROOT, '.babelrc')
+  ), 'utf8')
 );
 
-function getExternalDependencies () {
+function createExternalDependencies () {
   const externals = {};
   const { peerDependencies, dependencies } = packageJSON;
   const set = (_dependencies) => {
@@ -27,4 +30,4 @@ function getExternalDependencies () {
   return externals;
 }
 
-export const externals = getExternalDependencies ();
+export const externals = createExternalDependencies ();

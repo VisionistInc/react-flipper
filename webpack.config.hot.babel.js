@@ -1,8 +1,10 @@
 /* eslint-disable no-console, import/no-named-as-default */
 
 import webpack from 'webpack';
+import path from 'path';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
+  ROOT,
   babelrc
 } from './config';
 
@@ -10,13 +12,13 @@ export default Object.assign ({}, webpackDistConfig, {
   entry: [
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
-    './src/root.hot.jsx',
-    './src/index.html'
+    path.resolve (ROOT, 'src/root.hot.jsx'),
+    path.resolve (ROOT, 'src/index.html')
   ],
   devtool: 'eval',
   devServer: {
     hot: true,
-    contentBase: './dist',
+    contentBase: path.resolve (ROOT, 'dist'),
     publicPath: '/',
     stats: { colors: true }
   },
