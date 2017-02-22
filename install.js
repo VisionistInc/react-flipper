@@ -14,6 +14,7 @@ var packages = [
   'babel-preset-react@latest',
   'css-loader@latest',
   'empty@latest',
+  'eslint@latest',
   'eslint-config-airbnb@latest',
   'eslint-plugin-babel@latest',
   'eslint-plugin-flowtype@latest',
