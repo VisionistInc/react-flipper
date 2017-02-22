@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-unresolved */
 
 import webpack from 'webpack';
 import path from 'path';
@@ -38,7 +38,7 @@ export const webpackDistConfig = {
           'style-loader',
           'css-loader',
           'less-loader'
-        ]
+        ]no-console
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
