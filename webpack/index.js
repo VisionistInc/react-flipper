@@ -4,16 +4,16 @@
 var child_process = require ('child_process');
 var yarn = process.argv.slice (2)[0] === '--yarn';
 var packages = [
-  'babel-loader',
-  'babel-preset-es2015',
-  'babel-preset-react',
-  'css-loader',
-  'file-loader',
-  'less',
-  'less-loader',
+  'babel-loader@latest',
+  'babel-preset-es2015@latest',
+  'babel-preset-react@latest',
+  'css-loader@latest',
+  'file-loader@latest',
+  'less@latest',
+  'less-loader@latest',
   'react-hot-loader@next',
-  'style-loader',
-  'url-loader',
+  'style-loader@latest',
+  'url-loader@latest',
   'webpack@latest',
   'webpack-dev-server@latest'
 ];
