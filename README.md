@@ -85,6 +85,6 @@ $ ln -s <path>/.* <root>
   "build": "npm run build:lib && npm run build:dist",
   "build:lib": "webpack --config webpack.config.lib.babel.js",
   "build:dist": "webpack --config webpack.config.dist.babel.js",
-  "subtree:pull": "git subtree pull --prefix config <repository|remote> master"
+  "subtree:pull": "git subtree pull --prefix <path> <repository|remote> master"
 }
 ```
