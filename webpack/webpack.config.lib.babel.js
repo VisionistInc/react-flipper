@@ -2,18 +2,16 @@
 
 import webpack from 'webpack';
 import {
-  getEntry,
-  getOutput,
   getExternals,
   packageJSON
 } from './internal';
 
 export const webpackLibConfig = {
   entry: [
-    ...getEntry ('lib')
+    './src/components/index.js'
   ],
   output: {
-    path: getOutput ('lib'),
+    path: './lib',
     filename: 'index.js',
     library: packageJSON.name,
     libraryTarget: 'umd'

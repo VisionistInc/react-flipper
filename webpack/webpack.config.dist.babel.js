@@ -1,18 +1,15 @@
 /* eslint-disable no-console */
 
 import webpack from 'webpack';
-import {
-  getEntry,
-  getOutput
-} from './internal';
 
 export const webpackDistConfig = {
   entry: [
-    ...getEntry ('dist')
+    './src/root.jsx',
+    './src/index.html'
   ],
   output: {
     filename: 'bundle.js',
-    path: getOutput ('dist'),
+    path: './dist',
     publicPath: '/'
   },
   devtool: 'source-map',

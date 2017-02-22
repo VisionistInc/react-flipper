@@ -29,18 +29,5 @@ export function getExternals () {
 
   if (dependencies) set (dependencies);
   if (peerDependencies) set (peerDependencies);
-
   return externals;
-}
-
-export function getEntry (type) {
-  const { entry } = webpackrc[type];
-  return entry instanceof Array
-    ? entry.map (_path => path.resolve (_path))
-    : [ path.resolve (entry) ];
-}
-
-export function getOutput (type) {
-  const { output } = webpackrc[type];
-  return path.resolve (output);
 }
