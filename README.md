@@ -82,7 +82,6 @@ $ ln -s <path>/.* <root>
 ```json
 "scripts": {
   "start": "webpack-dev-server --config webpack.config.hot.babel.js",
-  "static": "npm run build:dist && node bin/express.js",
   "build": "npm run build:lib && npm run build:dist",
   "build:lib": "webpack --config webpack.config.lib.babel.js",
   "build:dist": "webpack --config webpack.config.dist.babel.js",
