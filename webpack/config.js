@@ -1,4 +1,5 @@
-import webpack from 'webpack';
+/* eslint-disable array-callback-return */
+
 import path from 'path';
 import fs from 'fs';
 
@@ -18,17 +19,15 @@ export const webpackConfig = JSON.parse (
   fs.readFileSync (path.resolve (WEBPACK_CONFIG), 'utf8')
 );
 
-export function getExternals () {
-  const externals = {};
-  const { peerDependencies, dependencies } = packageJSON;
-  const set = (_dependencies) => {
-    // eslint-disable-next-line array-callback-return
-    Object.keys (_dependencies).map ((dependency) => {
-      externals[dependency] = dependency;
-    });
-  };
+const _externals = {};
+const { peerDependencies, dependencies } = packageJSON;
+const set = (_dependencies) => {
+  Object.keys (_dependencies).map ((dependency) => {
+    _externals[dependency] = dependency;
+  });
+};
 
-  if (dependencies) set (dependencies);
-  if (peerDependencies) set (peerDependencies);
-  return externals;
-}
+if (dependencies) set (dependencies);
+if (peerDependencies) set (peerDependencies);
+
+export const externals = _externals;
