@@ -14,15 +14,17 @@ export const babelrc = JSON.parse (
   fs.readFileSync (path.resolve (BABEL_RC), 'utf8')
 );
 
-const _externals = {};
-const { peerDependencies, dependencies } = packageJSON;
-const set = (_dependencies) => {
-  Object.keys (_dependencies).map ((dependency) => {
-    _externals[dependency] = dependency;
-  });
-};
+function getExternalDependencies () {
+  const externals = {};
+  const { peerDependencies, dependencies } = packageJSON;
+  const set = (_dependencies) => {
+    Object.keys (_dependencies).map ((dependency) => {
+      externals[dependency] = dependency;
+    });
+  };
+  if (dependencies) set (dependencies);
+  if (peerDependencies) set (peerDependencies);
+  return externals;
+}
 
-if (dependencies) set (dependencies);
-if (peerDependencies) set (peerDependencies);
-
-export const externals = _externals;
+export const externals = getExternalDependencies ();
