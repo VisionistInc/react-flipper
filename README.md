@@ -31,9 +31,9 @@ Make sure your are in the root of your project before proceeding.
 
 This configuration assumes that an adequate babel configuration is present and that `babel-core` has already been installed in the project it is being added to.
 
-## Merging from this repository
+## Pulling from this repository
 ```
-$ git subtree merge --prefix <prefix_path> <branch>
+$ git subtree pull --prefix <prefix_path> <branch>
 ```
 
 This will execute a pull, using the “subtree” merge strategy and generate a merge commit.
