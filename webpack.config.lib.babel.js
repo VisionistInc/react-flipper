@@ -24,7 +24,7 @@ export const webpackLibConfig = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin ({ beautify: true }),
+    new webpack.optimize.UglifyJsPlugin ({ beautify: true }),
     ...getPlugins ('lib')
   ],
   module: {
