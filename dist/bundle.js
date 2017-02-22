@@ -9880,6 +9880,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* eslint-disable react/no-find-dom-node */
+/* eslint-disable react/no-string-refs */
 
 var Back = function (_Component) {
   _inherits(Back, _Component);
@@ -9889,16 +9891,16 @@ var Back = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Back.__proto__ || Object.getPrototypeOf(Back)).call(this, props));
 
-    _this._resize = function () {
-      if (!_this.props.isFront) _this.props.resize(_this._getHeight());
-    };
-
-    _this._getHeight = function () {
+    _this.getHeight = function () {
       return _reactDom2.default.findDOMNode(_this.refs.backTile).offsetHeight;
     };
 
-    _this._getClassName = function () {
+    _this.getClassName = function () {
       return _this.props.className ? 'back tile ' + _this.props.className : 'back tile';
+    };
+
+    _this.resize = function () {
+      if (!_this.props.isFront) _this.props.resize(_this.getHeight());
     };
 
     return _this;
@@ -9907,28 +9909,23 @@ var Back = function (_Component) {
   _createClass(Back, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this._resize();
-
-      /** Adds an event listener to the contents inside the subtree;
-          this will resize the flipper whenever the subtree contents change **/
-      _reactDom2.default.findDOMNode(this).addEventListener('DOMSubtreeModified', this._resize);
+      this.resize();
+      _reactDom2.default.findDOMNode(this).addEventListener('DOMSubtreeModified', this.resize);
     }
   }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      /** As our component will unmount, the active event listener
-          is no longer needed, therefore it is important to remove it **/
-      _reactDom2.default.findDOMNode(this).removeEventListener('DOMSubtreeModified', this._resize);
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps) {
+      return this.props.isFront !== nextProps.isFront;
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
-      this._resize();
+      this.resize();
     }
   }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return this.props.isFront !== nextProps.isFront;
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _reactDom2.default.findDOMNode(this).removeEventListener('DOMSubtreeModified', this.resize);
     }
   }, {
     key: 'render',
@@ -9941,7 +9938,7 @@ var Back = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: this._getClassName(), ref: 'backTile' }, props),
+        _extends({ className: this.getClassName(), ref: 'backTile' }, props),
         this.props.children
       );
     }
@@ -9977,6 +9974,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* eslint-disable react/no-find-dom-node */
+/* eslint-disable react/no-string-refs */
 
 __webpack_require__(85);
 
@@ -9988,19 +9987,19 @@ var Flipper = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Flipper.__proto__ || Object.getPrototypeOf(Flipper)).call(this, props));
 
-    _this._setHeight = function (_height) {
+    _this.setHeight = function (_height) {
       _this.setState({ height: _height });
     };
 
-    _this._getStyles = function () {
+    _this.getStyles = function () {
       return { height: _this.state.height };
     };
 
-    _this._getChildren = function () {
+    _this.getChildren = function () {
       return _react2.default.Children.map(_this.props.children, function (child) {
         return _react2.default.cloneElement(child, {
           isFront: !_this.props.isFlipped,
-          resize: _this._setHeight
+          resize: _this.setHeight
         });
       });
     };
@@ -10015,13 +10014,17 @@ var Flipper = function (_Component) {
       return _react2.default.createElement(
         'div',
         {
-          style: this._getStyles(),
-          className: "flipper-container " + this.props.orientation, ref: 'flipperContainer' },
+          style: this.getStyles(),
+          className: 'flipper-container ' + this.props.orientation,
+          ref: 'flipperContainer'
+        },
         _react2.default.createElement(
           'div',
           {
-            className: "flipper" + (this.props.isFlipped ? " flipped" : ""), ref: 'flipper' },
-          this._getChildren()
+            className: 'flipper' + (this.props.isFlipped ? ' flipped' : ''),
+            ref: 'flipper'
+          },
+          this.getChildren()
         )
       );
     }
@@ -10069,6 +10072,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* eslint-disable react/no-find-dom-node */
+/* eslint-disable react/no-string-refs */
 
 var Front = function (_Component) {
   _inherits(Front, _Component);
@@ -10078,16 +10083,16 @@ var Front = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Front.__proto__ || Object.getPrototypeOf(Front)).call(this, props));
 
-    _this._resize = function () {
-      if (_this.props.isFront) _this.props.resize(_this._getHeight());
-    };
-
-    _this._getHeight = function () {
+    _this.getHeight = function () {
       return _reactDom2.default.findDOMNode(_this.refs.frontTile).offsetHeight;
     };
 
-    _this._getClassName = function () {
+    _this.getClassName = function () {
       return _this.props.className ? 'front tile ' + _this.props.className : 'front tile';
+    };
+
+    _this.resize = function () {
+      if (_this.props.isFront) _this.props.resize(_this.getHeight());
     };
 
     return _this;
@@ -10096,28 +10101,23 @@ var Front = function (_Component) {
   _createClass(Front, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this._resize();
-
-      /** Adds an event listener to the contents inside the subtree;
-          this will resize the flipper whenever the subtree contents change **/
-      _reactDom2.default.findDOMNode(this).addEventListener('DOMSubtreeModified', this._resize);
+      this.resize();
+      _reactDom2.default.findDOMNode(this).addEventListener('DOMSubtreeModified', this.resize);
     }
   }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      /** As our component will unmount, the active event listener
-          is no longer needed, therefore it is important to remove it **/
-      _reactDom2.default.findDOMNode(this).removeEventListener('DOMSubtreeModified', this._resize);
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps) {
+      return this.props.isFront !== nextProps.isFront;
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
-      this._resize();
+      this.resize();
     }
   }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return this.props.isFront !== nextProps.isFront;
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _reactDom2.default.findDOMNode(this).removeEventListener('DOMSubtreeModified', this.resize);
     }
   }, {
     key: 'render',
@@ -10130,7 +10130,7 @@ var Front = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: this._getClassName(), ref: 'frontTile' }, props),
+        _extends({ className: this.getClassName(), ref: 'frontTile' }, props),
         this.props.children
       );
     }
@@ -10214,21 +10214,24 @@ __webpack_require__(86);
 var Website = function (_Component) {
   _inherits(Website, _Component);
 
-  function Website(props) {
+  function Website() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Website);
 
-    var _this = _possibleConstructorReturn(this, (Website.__proto__ || Object.getPrototypeOf(Website)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this._flip = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Website.__proto__ || Object.getPrototypeOf(Website)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      isFlipped: false
+    }, _this.flip = function () {
       _this.setState({ isFlipped: !_this.state.isFlipped });
-    };
-
-    _this._fork = function () {
-      window.location = "https://github.com/VisionistInc/react-flipper";
-    };
-
-    _this.state = { isFlipped: false };
-    return _this;
+    }, _this.fork = function () {
+      window.location = 'https://github.com/VisionistInc/react-flipper';
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Website, [{
@@ -10245,7 +10248,7 @@ var Website = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'description' },
-          'React \'flipper\' component that just gets it'
+          'React flipper component that just gets it'
         ),
         _react2.default.createElement(
           'div',
@@ -10279,7 +10282,7 @@ var Website = function (_Component) {
             { className: 'flipper-toggle' },
             _react2.default.createElement(
               'button',
-              { onClick: this._flip },
+              { onClick: this.flip },
               'Click me to flip!'
             )
           )
@@ -10287,7 +10290,7 @@ var Website = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'links' },
-          _react2.default.createElement('i', { className: 'fa fa-github', onClick: this._fork })
+          _react2.default.createElement('i', { className: 'fa fa-github', onClick: this.fork })
         ),
         _react2.default.createElement(
           'div',
