@@ -38,7 +38,7 @@ export const webpackDistConfig = {
           'style-loader',
           'css-loader',
           'less-loader'
-        ]no-console
+        ]
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
