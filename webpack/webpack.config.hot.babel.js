@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
   babelrc
-} from './internal';
+} from './config';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
@@ -22,9 +22,7 @@ export default Object.assign ({}, webpackDistConfig, {
   },
   plugins: [
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin (),
-    ...getPlugins ('hot'),
-    ...getPlugins ('dist')
+    new webpack.HotModuleReplacementPlugin ()
   ],
   module: {
     rules: [

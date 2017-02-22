@@ -3,7 +3,6 @@
 import webpack from 'webpack';
 import {
   getExternals,
-  getPlugins,
   packageJSON
 } from './config';
 
@@ -22,8 +21,7 @@ export const webpackLibConfig = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin ({ beautify: true }),
-    ...getPlugins ('lib')
+    new webpack.optimize.UglifyJsPlugin ({ beautify: true })
   ],
   module: {
     rules: [

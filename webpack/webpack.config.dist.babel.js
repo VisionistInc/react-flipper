@@ -16,9 +16,6 @@ export const webpackDistConfig = {
   resolve: {
     extensions: [ '*', '.js', '.jsx' ]
   },
-  plugins: [
-    ...getPlugins ('dist')
-  ],
   module: {
     rules: [
       {
