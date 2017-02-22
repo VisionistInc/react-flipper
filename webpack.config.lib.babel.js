@@ -16,7 +16,7 @@ export const webpackLibConfig = {
     library: packageJSON.name,
     libraryTarget: 'umd'
   },
-  externals: externals,
+  externals,
   resolve: {
     extensions: [ '*', '.js', '.jsx' ]
   },
