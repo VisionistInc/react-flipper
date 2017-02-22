@@ -2,19 +2,16 @@
 
 import webpack from 'webpack';
 import {
-  getEntry,
-  getOutput,
   getExternals,
-  getPlugins,
   packageJSON
 } from './config';
 
 export const webpackLibConfig = {
   entry: [
-    ...getEntry ('lib')
+    './src/components/index.js'
   ],
   output: {
-    path: getOutput ('lib'),
+    path: './lib',
     filename: 'index.js',
     library: packageJSON.name,
     libraryTarget: 'umd'
@@ -24,8 +21,7 @@ export const webpackLibConfig = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin ({ beautify: true }),
-    ...getPlugins ('lib')
+    new webpack.optimize.UglifyJsPlugin ({ beautify: true })
   ],
   module: {
     rules: [

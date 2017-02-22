@@ -3,30 +3,26 @@
 import webpack from 'webpack';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
-  babelrc,
-  getEntry,
-  getOutput,
-  getPlugins
+  babelrc
 } from './config';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
-    ...getEntry ('hot')
+    './src/root.hot.jsx',
+    './src/index.html'
   ],
   devtool: 'eval',
   devServer: {
     hot: true,
-    contentBase: getOutput ('dist'),
+    contentBase: './dist',
     publicPath: '/',
     stats: { colors: true }
   },
   plugins: [
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin (),
-    ...getPlugins ('hot'),
-    ...getPlugins ('dist')
+    new webpack.HotModuleReplacementPlugin ()
   ],
   module: {
     rules: [

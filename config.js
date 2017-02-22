@@ -30,34 +30,5 @@ export function getExternals () {
 
   if (dependencies) set (dependencies);
   if (peerDependencies) set (peerDependencies);
-
   return externals;
 }
-
-export function getEntry (type) {
-  const { entry } = webpackConfig[type];
-  return entry instanceof Array
-    ? entry.map (_path => path.resolve (_path))
-    : [ path.resolve (entry) ];
-}
-
-export function getOutput (type) {
-  const { output } = webpackConfig[type];
-  return path.resolve (output);
-}
-
-/* eslint-disable no-new-require, new-cap */
-export function getPlugins (type) {
-  if (!webpackConfig[type].plugins) return [];
-  return webpackConfig[type].plugins.map ((plugin) => {
-    if (plugin instanceof Array) {
-      const module = plugin[0];
-      const options = plugin.filter ((_, i) => i !== 0);
-      return module.includes ('webpack.')
-        ? new webpack[module.replace ('webpack.', '')] (...options)
-        : new require (module) (...options);
-    }
-    return new require (plugin);
-  });
-}
-/* eslint-enables no-new-require, new-cap */
