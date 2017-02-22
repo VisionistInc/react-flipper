@@ -57,16 +57,20 @@ These webpack config files will work in any way you wish to use them (CLI, API, 
   * #### Webpack CLI
 
     * ##### Module
-    Use this one if you are building a library or Node module.
-    ```
-    $ webpack --config <path>/webpack.config.lib.babel.js
-    ```
+
+      Use this one if you are building a library or Node module.
+
+      ```
+      $ webpack --config <path>/webpack.config.lib.babel.js
+      ```
 
     * ##### Application Distribution
-    Use this one if you are building an application and want to bundle up the static files.
-    ```
-    $ webpack --config <path>/webpack.config.dist.babel.js
-    ```
+
+      Use this one if you are building an application and want to bundle up the static files.
+
+      ```
+      $ webpack --config <path>/webpack.config.dist.babel.js
+      ```
 
 ### dotfiles
 Symlink all the provided dotfiles (`.babelrc`, `.eslintrc`, etc.) to the root of your project.
