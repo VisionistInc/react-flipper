@@ -5,7 +5,6 @@ import fs from 'fs';
 
 const PACKAGE_JSON = path.resolve (process.cwd (), 'package.json');
 const BABEL_RC = path.resolve (process.cwd (), '.babelrc');
-const WEBPACK_CONFIG = path.resolve (process.cwd (), '.webpackconfig');
 
 export const packageJSON = JSON.parse (
   fs.readFileSync (path.resolve (PACKAGE_JSON), 'utf8')
@@ -13,10 +12,6 @@ export const packageJSON = JSON.parse (
 
 export const babelrc = JSON.parse (
   fs.readFileSync (path.resolve (BABEL_RC), 'utf8')
-);
-
-export const webpackConfig = JSON.parse (
-  fs.readFileSync (path.resolve (WEBPACK_CONFIG), 'utf8')
 );
 
 const _externals = {};
