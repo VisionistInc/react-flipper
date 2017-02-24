@@ -9,7 +9,7 @@
     "build": "npm run build:lib && npm run build:dist",
     "build:lib": "webpack --config webpack.config.lib.babel.js",
     "build:dist": "webpack --config webpack.config.dist.babel.js",
-    "subtree:pull": "git subtree pull --prefix webpack webpack-config master"
+    "subtree:pull": "git subtree pull --prefix config git@github.com:enriquecaballero/react-app-config.git master"
   },
   "license": "ISC",
   "peerDependencies": {
