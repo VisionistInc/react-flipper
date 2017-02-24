@@ -13,7 +13,7 @@ export const packageJSON = JSON.parse (
 
 export const babelrc = JSON.parse (
   fs.readFileSync (path.resolve (
-    path.resolve (ROOT, '.babelrc')
+    path.resolve (__dirname, '.babelrc')
   ), 'utf8')
 );
 

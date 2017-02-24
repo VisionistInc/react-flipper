@@ -1,8 +1,8 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-unresolved */
 
 import webpack from 'webpack';
 import path from 'path';
-import { ROOT } from './config';
+import { ROOT } from './helpers';
 
 export const webpackDistConfig = {
   entry: [

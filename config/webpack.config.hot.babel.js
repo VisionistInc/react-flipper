@@ -1,4 +1,4 @@
-/* eslint-disable no-console, import/no-named-as-default */
+/* eslint-disable import/no-named-as-default, import/no-unresolved */
 
 import webpack from 'webpack';
 import path from 'path';
@@ -6,7 +6,7 @@ import webpackDistConfig from './webpack.config.dist.babel';
 import {
   ROOT,
   babelrc
-} from './config';
+} from './helpers';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
