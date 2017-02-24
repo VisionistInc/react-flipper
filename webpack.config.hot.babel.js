@@ -18,6 +18,7 @@ export default Object.assign ({}, webpackDistConfig, {
   devtool: 'eval',
   devServer: {
     hot: true,
+    host: '0.0.0.0',
     contentBase: path.resolve (ROOT, 'dist'),
     publicPath: '/',
     stats: { colors: true }
