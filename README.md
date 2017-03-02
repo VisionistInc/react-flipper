@@ -35,7 +35,7 @@ When you choose to contribute back to this repository, only do so when the code 
 ```
 $ git subtree push --prefix <path> <branch>
 ```
-This will make git go through the commits and pick the changes that should be pushed to the repository. Files outside of the prefix directory get filtered out. Once pushed, go to the repository and submit a Pull Request.
+This will make git go through the commits and pick the changes that should be pushed to the repository. Files outside of the prefix directory get filtered out. Once pushed, come to this repository and submit a Pull Request.
 
 ## Usage
 
