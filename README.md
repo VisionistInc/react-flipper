@@ -13,13 +13,11 @@ Make sure your are in the root of your project before proceeding.
   * Run the install script provided in this repository.
 
     * `npm`
-
     ```
     $ node <path>/install.js
     ```
 
     * `yarn`
-    
     ```
     $ node <path>/install.js --yarn
     ```
