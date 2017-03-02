@@ -11,18 +11,16 @@ Make sure your are in the root of your project before proceeding.
 
 
   * Run the install script provided in this repository.
-
-    * `npm`
     ```
     $ node <path>/install.js
     ```
 
-    * `yarn`
+    If you rather use `yarn`:
     ```
     $ node <path>/install.js --yarn
     ```
 
-  These two commands achieve the same end result, the only difference is the package manager it will use to install the required dependencies.
+  This script will install the required dependencies necessary for these config files to work and add them as `devDependencies` to your project's `package.json`.
 
 
 ## <a id="pulling"></a>Pulling from this Repository
