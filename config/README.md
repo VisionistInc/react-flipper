@@ -14,13 +14,17 @@ Make sure your are in the root of your project before proceeding.
     ```
     $ node <path>/install.js
     ```
+    This script will install the required dependencies necessary for these config files to work and add them as `devDependencies` to your project's `package.json`.
 
-    If you prefer to use `yarn`, simply add `--yarn` to the previous command.
-    ```
-    $ node <path>/install.js --yarn
-    ```
+    ### Flags
 
-  This script will install the required dependencies necessary for these config files to work and add them as `devDependencies` to your project's `package.json`.
+    * `--yarn`
+
+    Uses `yarn` as your package manager instead of `npm`.
+
+    * `--latest`
+
+    Forces the install script to re-install the latest dependencies.
 
 
 ## <a id="pulling"></a>Pulling from this Repository

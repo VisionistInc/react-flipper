@@ -2,7 +2,7 @@
 
 import webpack from 'webpack';
 import path from 'path';
-import { ROOT } from './helpers';
+import { ROOT } from './config';
 
 export const webpackDistConfig = {
   entry: [

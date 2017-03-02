@@ -6,7 +6,7 @@ import {
   ROOT,
   externals,
   packageJSON
-} from './helpers';
+} from './config';
 
 export const webpackLibConfig = {
   entry: [
