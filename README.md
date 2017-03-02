@@ -15,7 +15,7 @@ Make sure your are in the root of your project before proceeding.
     $ node <path>/install.js
     ```
 
-    If you rather use `yarn`:
+    If you prefer to use `yarn`, simply add `--yarn` to the previous command.
     ```
     $ node <path>/install.js --yarn
     ```
