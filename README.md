@@ -3,74 +3,68 @@
 ## Adding to your project
 Make sure your are in the root of your project before proceeding.
 
-  * Add remote that points to this repository
+  * Use `git subtree` to add to your existing repository.
   ```
-  $ git remote add <remote> <repository>
+  $ git subtree add --prefix <path> <repository> <branch>
   ```
-  This will significantly simplify the commands, so that you do not have to specify the repository address all the time.
+  Using `git subtree` allows developers to customize these files as needed. Any commits to these files will belong to the parent project's git repository.  Changes to the files from this repository can continue to be merged into the parent project's changes (see [Pulling from this Repository](#pulling))
 
-  * Add as a git subtree to your existing repository
-  ```
-  $ git subtree add --prefix <path> <remote> <branch>
-  ```
-  You use subtree add to add this repository into a path in your project, specified by **prefix**. The last two parameters, respectively, are the remote you have just created and the branch you are pulling the code from (webpack-config/master).
 
-## Pulling from this repository
+  * Run the install script provided in this repository.
+
+    * `npm`
+    ```
+    $ node <path>/install.js
+    ```
+
+    * `yarn`
+    ```
+    $ node <path>/install.js --yarn
+    ```
+
+  These two commands achieve the same end result, the only difference is the package manager it will use to install the required dependencies.
+
+
+## <a id="pulling"></a>Pulling from this Repository
 ```
 $ git subtree pull --prefix <path> <branch>
 ```
-
-This will execute a pull, using the “subtree” merge strategy and generate a merge commit.
+This will execute a pull, using the `subtree` merge strategy and generate a merge commit. You should not lose any local modifications done to these files.
 
 
 ## Pushing to this repository
+When you choose to contribute back to this repository, only do so when the code you will be contributing is not tied to any project whatsoever -- it is important to keep these config files project agnostic.
 ```
 $ git subtree push --prefix <path> <branch>
 ```
-This will make git go through the commits and pick the changes that should be pushed to the repo. Files outside of the prefix directory get filtered out.
+This will make git go through the commits and pick the changes that should be pushed to the repository. Files outside of the prefix directory get filtered out. Once pushed, go to the repository and submit a Pull Request.
 
 ## Usage
 
-Install the required dependencies by running the install script provided in this repository.
-
-  * `npm`
-  ```
-  $ node <path>/install.js
-  ```
-
-  * `yarn`
-  ```
-  $ node <path>/install.js --yarn
-  ```
-
-These two commands achieve the same thing, the only difference is the package manager it will use.
-
 ### Webpack
 
-These webpack config files will work in any way you wish to use them (CLI, API, etc.).
+#### Webpack Dev Server CLI
+```
+$ webpack-dev-server --config <path>/webpack.config.hot.babel.js
+```
 
-  * #### Webpack Dev Server CLI
-  ```
-  $ webpack-dev-server --config <path>/webpack.config.hot.babel.js
-  ```
+#### Webpack CLI
 
-  * #### Webpack CLI
+  * ##### Module
 
-    * ##### Module
+    Use this one if you are building a library or Node module.
 
-      Use this one if you are building a library or Node module.
+    ```
+    $ webpack --config <path>/webpack.config.lib.babel.js
+    ```
 
-      ```
-      $ webpack --config <path>/webpack.config.lib.babel.js
-      ```
+  * ##### Application Distribution
 
-    * ##### Application Distribution
+    Use this one if you are building an application and want to bundle up the static files.
 
-      Use this one if you are building an application and want to bundle up the static files.
-
-      ```
-      $ webpack --config <path>/webpack.config.dist.babel.js
-      ```
+    ```
+    $ webpack --config <path>/webpack.config.dist.babel.js
+    ```
 
 ### dotfiles
 Symlink all the provided dotfiles (`.babelrc`, `.eslintrc`, etc.) to the root of your project.
@@ -81,10 +75,10 @@ $ ln -s <path>/.* <root>
 ### Example NPM Scripts
 ```json
 "scripts": {
-  "start": "webpack-dev-server --config webpack.config.hot.babel.js",
+  "start": "webpack-dev-server --config <path>/webpack.config.hot.babel.js",
   "build": "npm run build:lib && npm run build:dist",
-  "build:lib": "webpack --config webpack.config.lib.babel.js",
-  "build:dist": "webpack --config webpack.config.dist.babel.js",
-  "subtree:pull": "git subtree pull --prefix <path> <repository|remote> master"
+  "build:lib": "webpack --config <path>/webpack.config.lib.babel.js",
+  "build:dist": "webpack --config <path>/webpack.config.dist.babel.js",
+  "subtree:pull": "git subtree pull --prefix <path> <repository> master"
 }
 ```
