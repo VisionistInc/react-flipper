@@ -18,7 +18,7 @@ Make sure your are in the root of your project before proceeding.
 
     * `--yarn`
 
-    Use this flag if your prefer to use `yarn` as your package manager instead of `npm`.
+    Uses `yarn` as your package manager instead of `npm`.
 
     * `--latest`
 
