@@ -16,6 +16,8 @@ Make sure your are in the root of your project before proceeding.
     ```
     This script will install the required dependencies necessary for these config files to work and add them as `devDependencies` to your project's `package.json`.
 
+    #### Flags
+
     * `--yarn`
 
     Uses `yarn` as your package manager instead of `npm`.
