@@ -28,6 +28,7 @@ const packages = [
   'style-loader',
   'url-loader',
   'webpack',
+  'webpack-dashboard',
   'webpack-dev-server'
 ];
 

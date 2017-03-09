@@ -2,11 +2,19 @@
 
 import webpack from 'webpack';
 import path from 'path';
+import Dashboard from 'webpack-dashboard';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
   ROOT,
   babelrc
 } from './config';
+
+// Removes unnecessary deprecation warning Webpack 2 outputs to the console
+// https://github.com/webpack/loader-utils/issues/56
+process.noDeprecation = true;
+
+const _Dashboard = new Dashboard ();
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
@@ -21,9 +29,11 @@ export default Object.assign ({}, webpackDistConfig, {
     host: '0.0.0.0',
     contentBase: path.resolve (ROOT, 'dist'),
     publicPath: '/',
-    stats: { colors: true }
+    stats: { colors: true },
+    quiet: true
   },
   plugins: [
+    new DashboardPlugin (_Dashboard.setData),
     new webpack.NamedModulesPlugin (),
     new webpack.HotModuleReplacementPlugin ()
   ],
