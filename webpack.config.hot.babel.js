@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default, import/no-unresolved */
+ /* eslint-disable-line import/no-unresolved */
 
 import webpack from 'webpack';
 import path from 'path';
@@ -10,11 +10,11 @@ import {
   babelrc
 } from './config';
 
-// Removes unnecessary deprecation warning Webpack 2 outputs to the console
-// https://github.com/webpack/loader-utils/issues/56
+/* Suppresses Webpack 2 `parseQuery` deprecation warning...
+  https://github.com/webpack/loader-utils/issues/56 */
 process.noDeprecation = true;
 
-const _Dashboard = new Dashboard ();
+const { setData } = new Dashboard ();
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
@@ -36,6 +36,7 @@ export default Object.assign ({}, webpackDistConfig, {
     new DashboardPlugin (_Dashboard.setData),
     new webpack.NamedModulesPlugin (),
     new webpack.HotModuleReplacementPlugin ()
+    /* ...webpackDistConfig.plugins */
   ],
   module: {
     rules: [
