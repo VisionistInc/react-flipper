@@ -17,9 +17,9 @@ export const babelrc = JSON.parse (
   ), 'utf8')
 );
 
-/** Creates the externals webpack configuration by reading
-    in the node modules listed as dependencies and/or
-    peerDependencies in the parent project's package.json **/
+/* Creates the externals webpack configuration by reading
+   in the node modules listed as dependencies and/or
+   peerDependencies in the parent project's package.json */
 function createExternalDependencies () {
   const externals = {};
   const { peerDependencies, dependencies } = packageJSON;
@@ -28,8 +28,10 @@ function createExternalDependencies () {
       externals[dependency] = dependency;
     });
   };
+
   if (dependencies) set (dependencies);
   if (peerDependencies) set (peerDependencies);
+
   return externals;
 }
 
