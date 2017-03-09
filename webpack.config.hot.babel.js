@@ -33,7 +33,7 @@ export default Object.assign ({}, webpackDistConfig, {
     quiet: true
   },
   plugins: [
-    new DashboardPlugin (_Dashboard.setData),
+    new DashboardPlugin (setData),
     new webpack.NamedModulesPlugin (),
     new webpack.HotModuleReplacementPlugin ()
     /* ...webpackDistConfig.plugins */
