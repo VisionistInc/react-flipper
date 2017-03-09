@@ -28,8 +28,10 @@ function createExternalDependencies () {
       externals[dependency] = dependency;
     });
   };
+
   if (dependencies) set (dependencies);
   if (peerDependencies) set (peerDependencies);
+
   return externals;
 }
 
