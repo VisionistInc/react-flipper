@@ -1,4 +1,4 @@
- /* eslint-disable-line import/no-unresolved */
+ /* eslint-disable import/no-unresolved */
 
 import webpack from 'webpack';
 import path from 'path';
