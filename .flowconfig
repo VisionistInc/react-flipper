@@ -1,4 +1,4 @@
 [options]
-module.name_mapper.extension='less' -> 'empty/object'
-module.name_mapper.extension='css' -> 'empty/object'
-module.name_mapper.extension='ico' -> 'empty/object'
+module.name_mapper.extension='less' -> '<PROJECT_ROOT>/config/flow/Empty'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/config/flow/Empty'
+module.name_mapper.extension='ico' -> '<PROJECT_ROOT>/config/flow/Empty'

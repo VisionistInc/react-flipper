@@ -12,7 +12,6 @@ const packages = [
   'babel-preset-es2015',
   'babel-preset-react',
   'css-loader',
-  'empty',
   'eslint',
   'eslint-config-airbnb',
   'eslint-plugin-babel',
