@@ -1,65 +1,16 @@
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    }
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-  },
+  "extends": [
+    "react-app",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
   "rules": {
     "array-bracket-spacing": [2, "always"],
-    "arrow-body-style": 0,
     "comma-dangle": [2, "never"],
-    "eqeqeq": 2,
-    "flowtype/use-flow-type": 1,
-    "flowtype/define-flow-type": 1,
     "func-call-spacing": [2, "always"],
-    "func-names": 0,
-    "global-require": 0,
-    "import/extensions": 0,
-    "import/no-extraneous-dependencies": 0,
-    "no-console": [2, {
-      "allow": [
-        "warn",
-        "error",
-        "info"
-      ]
-    }],
-    "no-param-reassign": 1,
-    "no-path-concat": 2,
-    "no-plusplus": ["error", {
-      "allowForLoopAfterthoughts": true
-    }],
-    "no-restricted-syntax": 0,
-    "no-return-assign": 0,
     "no-spaced-func": 0,
-    "no-unused-vars": ["error", {
-      "ignoreRestSiblings": true
-    }],
-    "no-var": 1,
-    "prefer-template" : 2,
-    "prefer-arrow-callback": 2,
-    "quote-props": [1, "as-needed"],
-    "react/jsx-wrap-multilines": [2, {
-      "return": false,
-      "declaration": false,
-      "assignment": false
-    }],
-    "react/no-array-index-key": 1,
-    "react/prefer-stateless-function": 1,
-    "semi": [2, "always", {
-      "omitLastInOneLineBlock": true
-    }],
+    "object-curly-spacing": [2, "always"],
     "space-before-function-paren": [2, "always"]
-  },
-  "plugins": [
-    "babel",
-    "react",
-    "flowtype"
-  ]
+  }
 }
