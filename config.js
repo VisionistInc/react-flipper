@@ -1,20 +1,16 @@
 /* eslint-disable array-callback-return */
 
-import path from 'path';
-import fs from 'fs';
+import path from "path";
+import fs from "fs";
 
 export const ROOT = process.cwd ();
 
 export const packageJSON = JSON.parse (
-  fs.readFileSync (path.resolve (
-    path.resolve (ROOT, 'package.json')
-  ), 'utf8')
+  fs.readFileSync (path.resolve (path.resolve (ROOT, "package.json")), "utf8")
 );
 
 export const babelrc = JSON.parse (
-  fs.readFileSync (path.resolve (
-    path.resolve (__dirname, '.babelrc')
-  ), 'utf8')
+  fs.readFileSync (path.resolve (path.resolve (__dirname, ".babelrc")), "utf8")
 );
 
 /** Creates the externals webpack configuration by reading
@@ -23,8 +19,8 @@ export const babelrc = JSON.parse (
 function createExternalDependencies () {
   const externals = {};
   const { peerDependencies, dependencies } = packageJSON;
-  const set = (_dependencies) => {
-    Object.keys (_dependencies).map ((dependency) => {
+  const set = _dependencies => {
+    Object.keys (_dependencies).map (dependency => {
       externals[dependency] = dependency;
     });
   };
