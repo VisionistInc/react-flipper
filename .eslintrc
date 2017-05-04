@@ -6,11 +6,8 @@
     "prettier/react"
   ],
   "rules": {
-    "array-bracket-spacing": [2, "always"],
-    "comma-dangle": [2, "never"],
     "func-call-spacing": [2, "always"],
     "no-spaced-func": 0,
-    "object-curly-spacing": [2, "always"],
     "space-before-function-paren": [2, "always"]
   }
 }
