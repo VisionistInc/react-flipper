@@ -7,6 +7,10 @@ import DashboardPlugin from "webpack-dashboard/plugin";
 import webpackDistConfig from "./webpack.config.dist.babel";
 import { ROOT, babelrc } from "./config";
 
+/* Suppresses Webpack 2 `parseQuery` deprecation warning...
+  https://github.com/webpack/loader-utils/issues/56 */
+process.noDeprecation = true;
+
 const { setData } = new Dashboard ();
 
 export default Object.assign ({}, webpackDistConfig, {
