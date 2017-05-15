@@ -1,8 +1,6 @@
 /* @flow */
-/* eslint-disable react/no-find-dom-node */
-/* eslint-disable react/no-string-refs */
 
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import ReactDOM from "react-dom";
 
 type Props = {
@@ -12,7 +10,7 @@ type Props = {
   children?: any
 };
 
-export default class Front extends Component {
+export default class Front extends PureComponent {
   constructor (props: Props): void {
     super (props);
   }

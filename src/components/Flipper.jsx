@@ -1,10 +1,8 @@
 /* @flow */
-/* eslint-disable react/no-find-dom-node */
-/* eslint-disable react/no-string-refs */
 
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-require ("./index.less");
+require ("./styles.less");
 
 type Props = {
   isFlipped: boolean,
@@ -12,7 +10,7 @@ type Props = {
   children?: any
 };
 
-export default class Flipper extends Component {
+export default class Flipper extends PureComponent {
   static defaultProps = {
     isFlipped: false,
     orientation: "horizontal"
