@@ -11,7 +11,7 @@ node_js:
   - '6'
   - '4'
 script:
-  - yarn build
+  - yarn build:lib
 after_success:
   - yarn semantic-release
 branches:
