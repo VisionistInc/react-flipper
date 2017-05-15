@@ -3,20 +3,22 @@
 
 React 'flipper' component that is agnostic to the height of its tiles, resizing accordingly. No jQuery.
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/enriquecaballero/branchsite.svg)](https://greenkeeper.io/) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 ## Get Started
 * Clone the repository
 ```
-$ git@github.com:VisionistInc/react-flipper.git
+$ git clone git@github.com:VisionistInc/react-flipper.git
 ```
 
 * Go into the cloned repository's directory
 ```
-$ cd react-flipper
+$ cd react-flipper/
 ```
 
 * Install dependencies
 ```
-$ npm install
+$ yarn install
 ```
 
 ## Usage
@@ -66,7 +68,7 @@ $ npm start
 
 ## Contributing
 
-Use GitHub to fork this project, make and commit your changes, and then [submit a new pull request](https://github.com/enriquecaballero/react-hello-world/pulls).
+Use GitHub to fork this project, make and commit your changes, and then [submit a new pull request](https://github.com/VisionistInc/react-flipper/pulls).
 
 ### Updating `gh-pages`
 
