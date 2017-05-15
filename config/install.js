@@ -45,11 +45,11 @@ function getPackages () {
 }
 
 if (isYarn) {
-  child_process.spawn ("yarn", [ "add", "-D" ].concat (getPackages ()), {
+  child_process.spawn ("yarn", ["add", "-D"].concat (getPackages ()), {
     stdio: "inherit"
   });
 } else {
-  child_process.spawn ("npm", [ "i", "-D" ].concat (getPackages ()), {
+  child_process.spawn ("npm", ["i", "-D"].concat (getPackages ()), {
     stdio: "inherit"
   });
 }

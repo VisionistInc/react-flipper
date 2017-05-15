@@ -1,25 +1,25 @@
 /* @flow */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import Website from './website/';
+import React from "react";
+import ReactDOM from "react-dom";
+import { AppContainer } from "react-hot-loader";
+import Website from "./website/";
 
 declare var module: any;
 
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render (
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById ('root')
+    document.getElementById ("root")
   );
 };
 
 render (Website);
 
 if (module.hot) {
-  module.hot.accept ('./website/', () => {
+  module.hot.accept ("./website/", () => {
     render (Website);
   });
 }

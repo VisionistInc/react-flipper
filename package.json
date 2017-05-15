@@ -11,7 +11,7 @@
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.hot.babel.js",
     "build:lib": "NODE_ENV=production webpack --config webpack.config.lib.babel.js",
     "build:dist": "NODE_ENV=production webpack --config webpack.config.dist.babel.js",
-    "pretty": "prettier-eslint --write \"src/**/*.js\"",
+    "pretty": "prettier-eslint --write \"{src,config}/**/*.@(js|jsx)\"",
     "cz": "git-cz",
     "commitmsg": "validate-commit-msg",
     "precommit": "lint-staged",
@@ -54,7 +54,6 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
     "lint-staged": "^3.4.1",
-    "prettier-eslint": "^6.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-hot-loader": "next",
@@ -67,7 +66,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,jsx}": [
       "prettier-eslint --write",
       "git add"
     ]
@@ -79,5 +78,8 @@
     "validate-commit-msg": {
       "helpMessage": "\nPlease use `yarn cz` to commit your changes"
     }
+  },
+  "dependencies": {
+    "prettier-eslint-cli": "^3.4.4"
   }
 }

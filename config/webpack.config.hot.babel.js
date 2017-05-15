@@ -44,7 +44,7 @@ export default Object.assign ({}, webpackDistConfig, {
           babelrc: false,
           presets: babelrc.presets.map (preset => {
             if (preset === "es2015") {
-              return [ "es2015", { modules: false } ];
+              return ["es2015", { modules: false }];
             }
             return preset;
           }),
