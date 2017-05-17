@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { PureComponent } from "react";
+import cx from "classnames";
 
 require ("./styles.less");
 
@@ -25,29 +26,23 @@ export default class Flipper extends PureComponent {
   setHeight = (_height: number): void => {
     this.setState ({ height: _height });
   };
-  getStyles = (): $Shape<{ height: number }> => {
-    return { height: this.state.height };
-  };
-  getChildren = (): Array<React$Element<any>> => {
-    return React.Children.map (this.props.children, child => {
-      return React.cloneElement (child, {
-        isFront: !this.props.isFlipped,
-        resize: this.setHeight
-      });
-    });
-  };
   render (): ?React$Element<any> {
     return (
       <div
-        style={this.getStyles ()}
-        className={`flipper-container ${this.props.orientation}`}
-        ref="flipperContainer"
+        style={{ height: this.state.height }}
+        className={cx ("flipper-container", this.props.orientation)}
       >
         <div
-          className={`flipper${this.props.isFlipped ? " flipped" : ""}`}
-          ref="flipper"
+          className={cx ("flipper", {
+            flipped: this.props.isFlipped === true
+          })}
         >
-          {this.getChildren ()}
+          {React.Children.map (this.props.children, child => {
+            return React.cloneElement (child, {
+              isActive: !this.props.isFlipped,
+              resize: this.setHeight
+            });
+          })}
         </div>
       </div>
     );
