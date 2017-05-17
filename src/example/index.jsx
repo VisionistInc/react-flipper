@@ -9,7 +9,7 @@ type State = {
 
 export default class Example extends Component {
   state: State = {
-    isFlipped: true
+    isFlipped: false
   };
   flip = (): void => {
     this.setState ({ isFlipped: !this.state.isFlipped });

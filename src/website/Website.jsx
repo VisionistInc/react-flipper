@@ -22,7 +22,7 @@ export default class Website extends Component {
           React-Flipper
         </div>
         <div className="description">
-          React flipper component that just gets it
+          React "flipper" component that just gets it
         </div>
         <div className="example">
           <div className="flipper-containers">
