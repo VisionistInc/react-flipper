@@ -59,7 +59,7 @@
     "react-dom": "^15.4.2",
     "react-hot-loader": "next",
     "semantic-release": "^6.3.6",
-    "style-loader": "^0.17.0",
+    "style-loader": "^0.18.0",
     "url-loader": "^0.5.8",
     "validate-commit-msg": "^2.12.1",
     "webpack": "^2.5.1",
