@@ -6,18 +6,26 @@ import { ROOT } from "./config";
 
 export const webpackDistConfig = {
   entry: [
-    path.resolve (ROOT, "src/root.jsx"),
-    path.resolve (ROOT, "src/index.html")
+    path.resolve(ROOT, "src", "root.jsx"),
+    path.resolve(ROOT, "src", "index.html")
   ],
   output: {
     filename: "bundle.js",
-    path: path.resolve (ROOT, "dist"),
+    path: path.resolve(ROOT, "dist"),
     publicPath: "/"
   },
   devtool: "source-map",
   resolve: {
-    extensions: [ "*", ".js", ".jsx" ]
+    extensions: ["*", ".js", ".jsx"]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   module: {
     rules: [
       {
@@ -34,7 +42,7 @@ export const webpackDistConfig = {
       },
       {
         test: /\.(css|less)$/,
-        loaders: [ "style-loader", "css-loader", "less-loader" ]
+        loaders: ["style-loader", "css-loader", "less-loader"]
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
@@ -49,20 +57,20 @@ export const webpackDistConfig = {
   }
 };
 
-export function webpackDistCompiler (callback) {
-  const compiler = webpack (webpackDistConfig);
-  compiler.run ((error, stats) => {
-    console.log ("Successfully bundled 'dist'");
-    console.log (stats.toString ({ chunks: false, colors: true }));
-    if (callback) callback ();
+export function webpackDistCompiler(callback) {
+  const compiler = webpack(webpackDistConfig);
+  compiler.run((error, stats) => {
+    console.log("Successfully bundled 'dist'");
+    console.log(stats.toString({ chunks: false, colors: true }));
+    if (callback) callback();
   });
 }
 
-export function webpackDistWatcher () {
-  const compiler = webpack (webpackDistConfig);
-  return compiler.watch ({}, (error, stats) => {
-    console.log ("Successfully bundled 'dist'");
-    console.log (stats.toString ({ chunks: false, colors: true }));
+export function webpackDistWatcher() {
+  const compiler = webpack(webpackDistConfig);
+  return compiler.watch({}, (error, stats) => {
+    console.log("Successfully bundled 'dist'");
+    console.log(stats.toString({ chunks: false, colors: true }));
   });
 }
 
