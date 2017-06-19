@@ -2,10 +2,10 @@
 
 import webpack from "webpack";
 import path from "path";
-import { ROOT, externals, packageJSON } from "./config";
+import { ROOT, externals, babelrc, packageJSON } from "./config";
 
 export const webpackLibConfig = {
-  entry: [path.resolve (ROOT, "src/components/index.js")],
+  entry: [path.resolve (ROOT, "src", "components", "index.js")],
   output: {
     path: path.resolve (ROOT, "lib"),
     filename: "index.js",
@@ -16,13 +16,28 @@ export const webpackLibConfig = {
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
-  plugins: [new webpack.optimize.UglifyJsPlugin ({ beautify: true })],
+  plugins: [
+    new webpack.DefinePlugin ({
+      "process.env": {
+        NODE_ENV: JSON.stringify ("production")
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin ()
+  ],
   module: {
     rules: [
       {
         test: /\.(js|jsx)?/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
+        options: Object.assign ({}, babelrc, {
+          babelrc: false,
+          presets: babelrc.presets.map (
+            preset =>
+              preset === "es2015" ? ["es2015", { modules: false }] : preset
+          ),
+          plugins: babelrc.plugins
+        })
       },
       {
         test: /\.(css|less)$/,

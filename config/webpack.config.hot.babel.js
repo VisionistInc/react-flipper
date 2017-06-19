@@ -31,27 +31,22 @@ export default Object.assign ({}, webpackDistConfig, {
   plugins: [
     new DashboardPlugin (setData),
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin ()
+    new webpack.HotModuleReplacementPlugin (),
+    ...webpackDistConfig.plugins
   ],
   module: {
     rules: [
-      ...webpackDistConfig.module.rules.slice (0, 0),
       {
         test: /\.(js|jsx)?/,
         exclude: /node_modules/,
         loader: "babel-loader",
         options: Object.assign ({}, babelrc, {
           babelrc: false,
-          presets: babelrc.presets.map (preset => {
-            if (preset === "es2015") {
-              return ["es2015", { modules: false }];
-            }
-            return preset;
-          }),
-          plugins: [
-            "react-hot-loader/babel",
-            ...babelrc.plugins.filter (plugin => plugin !== "add-module-exports")
-          ]
+          presets: babelrc.presets.map (
+            preset =>
+              preset === "es2015" ? ["es2015", { modules: false }] : preset
+          ),
+          plugins: ["react-hot-loader/babel", ...babelrc.plugins]
         })
       },
       ...webpackDistConfig.module.rules.slice (1)

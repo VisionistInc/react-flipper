@@ -6,8 +6,8 @@ import { ROOT } from "./config";
 
 export const webpackDistConfig = {
   entry: [
-    path.resolve (ROOT, "src/root.jsx"),
-    path.resolve (ROOT, "src/index.html")
+    path.resolve (ROOT, "src", "root.jsx"),
+    path.resolve (ROOT, "src", "index.html")
   ],
   output: {
     filename: "bundle.js",
@@ -18,6 +18,14 @@ export const webpackDistConfig = {
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
+  plugins: [
+    new webpack.DefinePlugin ({
+      "process.env": {
+        NODE_ENV: JSON.stringify (process.env.NODE_ENV || "production")
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin ()
+  ],
   module: {
     rules: [
       {
