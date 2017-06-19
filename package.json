@@ -54,7 +54,7 @@
     "husky": "^0.13.3",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
-    "lint-staged": "^3.4.1",
+    "lint-staged": "^4.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-hot-loader": "next",
