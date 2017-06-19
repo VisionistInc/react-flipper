@@ -24,6 +24,7 @@ const packages = [
   "less-loader",
   "react-hot-loader@next", // RHL-3 is currently in beta
   "style-loader",
+  "uglify-js@2.8.23", // UglifyJs 3 is not compatible with uglifyjs-webpack-plugin
   "uglifyjs-webpack-plugin",
   "url-loader",
   "webpack",
