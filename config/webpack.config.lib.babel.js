@@ -2,6 +2,7 @@
 
 import webpack from "webpack";
 import path from "path";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import { ROOT, externals, babelrc, packageJSON } from "./config";
 
 export const webpackLibConfig = {
@@ -22,7 +23,7 @@ export const webpackLibConfig = {
         NODE_ENV: JSON.stringify ("production")
       }
     }),
-    new webpack.optimize.UglifyJsPlugin ()
+    new UglifyJsPlugin ()
   ],
   module: {
     rules: [
