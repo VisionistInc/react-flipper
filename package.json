@@ -9,8 +9,8 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.hot.babel.js",
-    "build:lib": "NODE_ENV=production webpack --config webpack.config.lib.babel.js",
-    "build:dist": "NODE_ENV=production webpack --config webpack.config.dist.babel.js",
+    "build:lib": "webpack --config webpack.config.lib.babel.js",
+    "build:dist": "webpack --config webpack.config.dist.babel.js",
     "pretty": "prettier-eslint --write \"{src,config}/**/*.@(js|jsx)\"",
     "cz": "git-cz",
     "commitmsg": "validate-commit-msg",
