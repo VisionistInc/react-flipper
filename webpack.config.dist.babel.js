@@ -2,6 +2,7 @@
 
 import webpack from "webpack";
 import path from "path";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import { ROOT } from "./config";
 
 export const webpackDistConfig = {
@@ -24,7 +25,7 @@ export const webpackDistConfig = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new UglifyJsPlugin()
   ],
   module: {
     rules: [
