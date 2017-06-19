@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { PureComponent } from "react";
+import { PureComponent } from "react";
 import ReactDOM from "react-dom";
 
 export default class Tile extends PureComponent<any, any, any> {
@@ -10,9 +10,6 @@ export default class Tile extends PureComponent<any, any, any> {
       "DOMSubtreeModified",
       this.resize
     );
-  }
-  shouldComponentUpdate (nextProps: Props): boolean {
-    return this.props.isActive !== nextProps.isActive;
   }
   componentDidUpdate (): void {
     this.resize ();
