@@ -1,0 +1,19 @@
+---
+extends:
+- react-app
+- prettier
+- prettier/flowtype
+- prettier/react
+rules:
+  no-console:
+  - warn
+  - allow:
+    - warn
+    - error
+  func-call-spacing:
+  - 2
+  - always
+  no-spaced-func: 0
+  space-before-function-paren:
+  - 2
+  - always
