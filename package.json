@@ -49,7 +49,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
     "file-loader": "^0.11.2",
-    "flow-bin": "^0.53.1",
+    "flow-bin": "^0.54.0",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
     "less": "^2.7.2",
